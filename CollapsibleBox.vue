@@ -100,7 +100,7 @@ export default {
   computed: {
     dropdownSrc() {
       let n = 2;
-      if (this.$store.state.options.appearence.dropdownStyle) {
+      if (this.$store?.state.options.appearence.dropdownStyle) {
         n = this.$store.state.options.appearence.dropdownStyle;
       }
       let images = [
