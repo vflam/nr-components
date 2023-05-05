@@ -1,0 +1,32 @@
+$margin: 10px;
+$small_margin: 5px;
+$box_shadow: 0px 1px 4px 0px rgb(0 0 0 / 40%);
+// $box_border: 1px #aaa solid;
+$box_border: var(--box-border, #aaa);
+$mobile_mode: 486px;
+$large_mode: 640px;
+$very_large_mode: 1250px;
+
+$gray: var(--color-gray);
+$blue: var(--color-blue);
+$red: var(--color-red);
+$green: var(--color-green);
+$fontColor: var(--font-color);
+$light_blue: var(--color-lightblue);
+$cost_color: var(--cost-color);
+$dotted_border: 1px #555 dotted;
+$title_background: rgba(var(--title-r), var(--title-g), var(--title-b), 1);
+$forces_background: var(--forces_background);
+$background_color:  rgba(var(--bg-r), var(--bg-g), var(--bg-b), 1);
+$input_highlights: var(--input-highlights);
+$orange: "#805300";
+
+
+
+$font: var(--font, sans-serif);
+$fontSize: var(--fontSize, 16px);
+$fontHeader: var(--fontHeader, sans-serif);
+$fontHeaderSize: var(--fontHeaderSize, 16px);
+$fontHeaderTransform: var(--fontHeaderTransform, "none");
+$fontButton: var(--fontButton, sans-serif);
+$fontButtonSize: var(--fontButtonSize, 16px);
