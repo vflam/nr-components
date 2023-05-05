@@ -5,7 +5,7 @@
 import { dateFormat } from "@/assets/shared/util.ts";
 
 export default {
-  props: ["value"],
+  props: ["value", "modelValue"],
   data() {
     return {
       dateString: null,
@@ -13,7 +13,8 @@ export default {
   },
 
   created() {
-    if (this.value == null) {
+    let val = this.value || this.modelValue;
+    if (val == null) {
       this.dateString = dateFormat(new Date());
     } else {
       this.dateString = dateFormat(this.value);
@@ -23,6 +24,7 @@ export default {
   methods: {
     change() {
       this.$emit("input", new Date(this.dateString));
+      this.$emit("update:modelValue", new Date(this.dateString));
       this.$emit("change");
     },
   },

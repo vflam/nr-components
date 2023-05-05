@@ -13,22 +13,21 @@
   </span>
 </template>
 
-<script lang="ts">
-import Vue from "vue";
+<script>
 import InfoButton from "./InfoButton.vue";
 
-export default Vue.extend({
+export default {
   props: {
     for: String,
-    title: String
+    title: String,
   },
   components: { InfoButton },
   computed: {
-    forstring(): string {
+    forstring() {
       return this.for;
-    }
-  }
-})
+    },
+  },
+};
 </script>
 
 <style scoped>

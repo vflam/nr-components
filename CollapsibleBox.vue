@@ -1,27 +1,46 @@
 <template>
-  <div :class="{
-    box: !nobox && !noboxindent,
-    nobox: nobox,
-    nocollapse: !collapsible,
-    noboxindent: noboxindent,
-    verticalbox: collapsed && vertical,
-  }" class="collapsibleBox">
-    <h3 v-if="!notitle"
-      :class="[{ arrowTitle: collapsible, normalTitle: !collapsible, collapsed: collapsible && collapsed }, title]"
-      @click="titleSwitch">
-      <img v-if="collapsible" :src="dropdownSrc" class="icon arrow" @click.stop="collapseSwitch" />
+  <div
+    :class="{
+      box: !nobox && !noboxindent,
+      nobox: nobox,
+      nocollapse: !collapsible,
+      noboxindent: noboxindent,
+      verticalbox: collapsed && vertical,
+    }"
+    class="collapsibleBox"
+  >
+    <h3
+      v-if="!notitle"
+      :class="[
+        {
+          arrowTitle: collapsible,
+          normalTitle: !collapsible,
+          collapsed: collapsible && collapsed,
+        },
+        title,
+      ]"
+      @click="titleSwitch"
+    >
+      <img
+        v-if="collapsible"
+        :src="dropdownSrc"
+        class="icon arrow"
+        @click.stop="collapseSwitch"
+      />
       <slot name="title" class="title" />
     </h3>
-    <div v-if="initiated" v-show="!collapsed || !collapsible" class="boxContent">
+    <div
+      v-if="initiated"
+      v-show="!collapsed || !collapsible"
+      class="boxContent"
+    >
       <slot name="content" />
     </div>
   </div>
 </template>
 
-<script lang="ts">
-import Vue from "vue";
-
-export default Vue.extend({
+<script>
+export default {
   props: {
     collapsible: {
       type: Boolean,
@@ -79,12 +98,15 @@ export default Vue.extend({
   },
 
   computed: {
-    dropdownSrc(): string {
+    dropdownSrc() {
       let n = 2;
       if (this.$store.state.options.appearence.dropdownStyle) {
         n = this.$store.state.options.appearence.dropdownStyle;
       }
-      let images = [`/assets/icons/right${n}.png`, `/assets/icons/down${n}.png`];
+      let images = [
+        `/assets/icons/right${n}.png`,
+        `/assets/icons/down${n}.png`,
+      ];
       let index = this.collapsed ? 0 : 1;
       if (this.vertical) {
         index = 1 - index;
@@ -112,7 +134,7 @@ export default Vue.extend({
       }
     },
   },
-});
+};
 </script>
 <style scoped lang="scss">
 @import "@/shared_components/css/vars.scss";
@@ -151,7 +173,7 @@ h3 {
   }
 }
 
-.nobox>.boxContent {
+.nobox > .boxContent {
   padding: 0px;
 }
 

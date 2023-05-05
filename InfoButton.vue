@@ -7,18 +7,17 @@
   </span>
 </template>
 
-<script lang="ts">
-import Vue from "vue";
+<script>
 import PopupDialog from "./PopupDialog.vue";
 
-export default Vue.extend({
+export default {
   data() {
     return {
-      show: false
-    }
+      show: false,
+    };
   },
-  components: { PopupDialog }
-})
+  components: { PopupDialog },
+};
 </script>
 
 <style scoped>
