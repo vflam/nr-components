@@ -21,7 +21,6 @@
 
 <script>
 import { Teleport } from "./js/teleport";
-
 export default {
   name: "PopupDialog",
   components: { Teleport },
