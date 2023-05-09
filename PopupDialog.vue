@@ -86,7 +86,7 @@ export default {
   },
   data() {
     return {
-      content: isVue2 ? this.value : this.modelValue,
+      content: process.env.vue === 2 ? this.value : this.modelValue,
     };
   },
 };
@@ -105,10 +105,8 @@ export default {
 }
 
 .box {
-  background-image: linear-gradient(
-      rgba(var(--bg-r), var(--bg-g), var(--bg-b), var(--bg-a)),
-      rgba(var(--bg-r), var(--bg-g), var(--bg-b), var(--bg-a))
-    ),
+  background-image: linear-gradient(rgba(var(--bg-r), var(--bg-g), var(--bg-b), var(--bg-a)),
+      rgba(var(--bg-r), var(--bg-g), var(--bg-b), var(--bg-a))),
     url(/assets/images/no.jpg);
   background-size: var(--bg-size);
   background-color: rgb(var(--bg-r), var(--bg-g), var(--bg-b));

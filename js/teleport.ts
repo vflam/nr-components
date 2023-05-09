@@ -1,4 +1,4 @@
 //  @ts-ignore
-import Teleport from "vue2-teleport";
-//  @ts-ignore
-export const Teleport = Teleport;
+import Teleport2 from "vue2-teleport";
+
+export const Teleport = Teleport2;
