@@ -3,12 +3,15 @@
     <div class="container" @click="stop">
       <div class="veil" @click="close_popup"></div>
       <div class="box" :style="slotstyle">
-        <img v-if="x" @click="close_popup" class="x" src="/assets/icons/redcross.png" />
         <div class="content">
           <slot />
           <div class="close-wrap">
-            <button v-if="button" class="bouton close" @click="$emit('button')">{{ button }}</button>
-            <button v-if="!noclose" class="bouton close" @click="close_popup">{{ text }}</button>
+            <button v-if="button" class="bouton close" @click="click_button">
+              {{ button }}
+            </button>
+            <button v-if="!noclose" class="bouton close" @click="close_popup">
+              {{ text }}
+            </button>
           </div>
         </div>
       </div>
@@ -17,7 +20,8 @@
 </template>
 
 <script>
-import Teleport from "vue2-teleport";
+import { Teleport } from "./js/teleport";
+
 export default {
   name: "PopupDialog",
   components: { Teleport },
@@ -26,9 +30,17 @@ export default {
     stop(event) {
       event.stopImmediatePropagation();
     },
+    click_button() {
+      this.$emit("button");
+      this.content = false;
+      this.$emit("input", this.content);
+      this.$emit("update:modelValue", this.content);
+      this.$emit("close");
+    },
     close_popup(emit = true) {
       this.content = false;
       this.$emit("input", this.content);
+      this.$emit("update:modelValue", this.content);
       if (emit) {
         this.$emit("cancel");
         this.$emit("close");
@@ -37,6 +49,10 @@ export default {
   },
   props: {
     value: {
+      default: true,
+      type: Boolean,
+    },
+    modelValue: {
       default: true,
       type: Boolean,
     },
@@ -70,7 +86,7 @@ export default {
   },
   data() {
     return {
-      content: this.value,
+      content: isVue2 ? this.value : this.modelValue,
     };
   },
 };
@@ -89,8 +105,10 @@ export default {
 }
 
 .box {
-  background-image: linear-gradient(rgba(var(--bg-r), var(--bg-g), var(--bg-b), var(--bg-a)),
-      rgba(var(--bg-r), var(--bg-g), var(--bg-b), var(--bg-a))),
+  background-image: linear-gradient(
+      rgba(var(--bg-r), var(--bg-g), var(--bg-b), var(--bg-a)),
+      rgba(var(--bg-r), var(--bg-g), var(--bg-b), var(--bg-a))
+    ),
     url(/assets/images/no.jpg);
   background-size: var(--bg-size);
   background-color: rgb(var(--bg-r), var(--bg-g), var(--bg-b));
