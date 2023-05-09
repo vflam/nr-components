@@ -21,7 +21,6 @@
 
 <script>
 import { Teleport } from "./js/teleport";
-
 export default {
   name: "PopupDialog",
   components: { Teleport },
@@ -86,7 +85,7 @@ export default {
   },
   data() {
     return {
-      content: isVue2 ? this.value : this.modelValue,
+      content: Vue.version.startsWith("2.") ? this.value : this.modelValue,
     };
   },
 };
