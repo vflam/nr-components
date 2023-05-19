@@ -6,7 +6,12 @@
         <div class="content">
           <slot />
           <div class="close-wrap">
-            <button :disabled="disabled" v-if="button" class="bouton close" @click="click_button">
+            <button
+              :disabled="disabled"
+              v-if="button"
+              class="bouton close"
+              @click="click_button"
+            >
               {{ button }}
             </button>
             <button v-if="!noclose" class="bouton close" @click="close_popup">
@@ -51,6 +56,10 @@ export default {
       default: true,
       type: Boolean,
     },
+    value: {
+      default: true,
+      type: Boolean,
+    },
     text: {
       type: String,
       default: "Close",
@@ -85,7 +94,7 @@ export default {
   },
   data() {
     return {
-      content: this.modelValue,
+      content: globalThis.isVue3 ? this.modelValue : this.value,
     };
   },
 };
@@ -104,8 +113,10 @@ export default {
 }
 
 .box {
-  background-image: linear-gradient(rgba(var(--bg-r), var(--bg-g), var(--bg-b), var(--bg-a)),
-      rgba(var(--bg-r), var(--bg-g), var(--bg-b), var(--bg-a))),
+  background-image: linear-gradient(
+      rgba(var(--bg-r), var(--bg-g), var(--bg-b), var(--bg-a)),
+      rgba(var(--bg-r), var(--bg-g), var(--bg-b), var(--bg-a))
+    ),
     url(/assets/images/no.jpg);
   background-size: var(--bg-size);
   background-color: rgb(var(--bg-r), var(--bg-g), var(--bg-b));
