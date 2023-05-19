@@ -6,12 +6,7 @@
         <div class="content">
           <slot />
           <div class="close-wrap">
-            <button
-              :disabled="disabled"
-              v-if="button"
-              class="bouton close"
-              @click="click_button"
-            >
+            <button :disabled="disabled" v-if="button" class="bouton close" @click="click_button">
               {{ button }}
             </button>
             <button v-if="!noclose" class="bouton close" @click="close_popup">
@@ -52,10 +47,6 @@ export default {
     },
   },
   props: {
-    value: {
-      default: true,
-      type: Boolean,
-    },
     modelValue: {
       default: true,
       type: Boolean,
@@ -85,7 +76,7 @@ export default {
     },
   },
   watch: {
-    value(n) {
+    modelValue(n) {
       this.content = n;
     },
     $route() {
@@ -94,7 +85,7 @@ export default {
   },
   data() {
     return {
-      content: this.value || this.modelValue,
+      content: this.modelValue,
     };
   },
 };
@@ -113,10 +104,8 @@ export default {
 }
 
 .box {
-  background-image: linear-gradient(
-      rgba(var(--bg-r), var(--bg-g), var(--bg-b), var(--bg-a)),
-      rgba(var(--bg-r), var(--bg-g), var(--bg-b), var(--bg-a))
-    ),
+  background-image: linear-gradient(rgba(var(--bg-r), var(--bg-g), var(--bg-b), var(--bg-a)),
+      rgba(var(--bg-r), var(--bg-g), var(--bg-b), var(--bg-a))),
     url(/assets/images/no.jpg);
   background-size: var(--bg-size);
   background-color: rgb(var(--bg-r), var(--bg-g), var(--bg-b));
