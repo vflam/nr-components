@@ -6,12 +6,7 @@
         <div class="content">
           <slot />
           <div class="close-wrap">
-            <button
-              :disabled="disabled"
-              v-if="button"
-              class="bouton close"
-              @click="click_button"
-            >
+            <button :disabled="disabled" v-if="button" class="bouton close" @click="click_button">
               {{ button }}
             </button>
             <button v-if="!noclose" class="bouton close" @click="close_popup">
@@ -24,12 +19,12 @@
   </Teleport>
 </template>
 
-<script>
+<script lang="ts">
 import { Teleport } from "./js/teleport";
 export default {
   name: "PopupDialog",
   components: { Teleport },
-
+  emits: ["button", "close", "input", "update:modelValue", "cancel"],
   methods: {
     stop(event) {
       event.stopImmediatePropagation();
@@ -50,6 +45,19 @@ export default {
         this.$emit("close");
       }
     },
+    esc_close_popup(e: KeyboardEvent) {
+      if (e.key.toLowerCase() === "escape") {
+        if (this.content) {
+          this.close_popup();
+        }
+      }
+    },
+  },
+  mounted() {
+    addEventListener("keydown", this.esc_close_popup);
+  },
+  unmounted() {
+    removeEventListener("keydown", this.esc_close_popup);
   },
   props: {
     modelValue: {
