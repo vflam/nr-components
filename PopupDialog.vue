@@ -20,10 +20,8 @@
 </template>
 
 <script lang="ts">
-import { Teleport } from "./js/teleport";
 export default {
   name: "PopupDialog",
-  components: { Teleport },
   emits: ["button", "close", "input", "update:modelValue", "cancel"],
   methods: {
     stop(event) {
@@ -121,10 +119,8 @@ export default {
 }
 
 .box {
-  background-image: linear-gradient(
-      rgba(var(--bg-r), var(--bg-g), var(--bg-b), var(--bg-a)),
-      rgba(var(--bg-r), var(--bg-g), var(--bg-b), var(--bg-a))
-    ),
+  background-image: linear-gradient(rgba(var(--bg-r), var(--bg-g), var(--bg-b), var(--bg-a)),
+      rgba(var(--bg-r), var(--bg-g), var(--bg-b), var(--bg-a))),
     url(/assets/images/no.jpg);
   background-size: var(--bg-size);
   background-color: rgb(var(--bg-r), var(--bg-g), var(--bg-b));
