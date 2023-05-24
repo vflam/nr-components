@@ -1,7 +1,7 @@
 <template>
   <Teleport to="#popups" v-if="content">
     <div class="container" @click="stop">
-      <div class="veil" @click="close_popup"></div>
+      <div class="veil" @click="close_popup(true)"></div>
       <div class="box" :style="slotstyle">
         <div class="content">
           <slot />
@@ -9,7 +9,7 @@
             <button :disabled="disabled" v-if="button" class="bouton close" @click="click_button">
               {{ button }}
             </button>
-            <button v-if="!noclose" class="bouton close" @click="close_popup">
+            <button v-if="!noclose" class="bouton close" @click="close_popup(true)">
               {{ text }}
             </button>
           </div>
@@ -20,25 +20,21 @@
 </template>
 
 <script lang="ts">
-import { Teleport } from "./js/teleport";
 export default {
   name: "PopupDialog",
-  components: { Teleport },
-  emits: ["button", "close", "input", "update:modelValue", "cancel"],
+  emits: ["button", "close", "update:modelValue", "cancel"],
   methods: {
-    stop(event) {
+    stop(event: any) {
       event.stopImmediatePropagation();
     },
     click_button() {
       this.$emit("button");
       this.content = false;
-      this.$emit("input", this.content);
       this.$emit("update:modelValue", this.content);
       this.$emit("close");
     },
     close_popup(emit = true) {
       this.content = false;
-      this.$emit("input", this.content);
       this.$emit("update:modelValue", this.content);
       if (emit) {
         this.$emit("cancel");
@@ -102,7 +98,7 @@ export default {
   },
   data() {
     return {
-      content: globalThis.isVue3 ? this.modelValue : this.value,
+      content: this.modelValue,
     };
   },
 };
@@ -121,10 +117,8 @@ export default {
 }
 
 .box {
-  background-image: linear-gradient(
-      rgba(var(--bg-r), var(--bg-g), var(--bg-b), var(--bg-a)),
-      rgba(var(--bg-r), var(--bg-g), var(--bg-b), var(--bg-a))
-    ),
+  background-image: linear-gradient(rgba(var(--bg-r), var(--bg-g), var(--bg-b), var(--bg-a)),
+      rgba(var(--bg-r), var(--bg-g), var(--bg-b), var(--bg-a))),
     url(/assets/images/no.jpg);
   background-size: var(--bg-size);
   background-color: rgb(var(--bg-r), var(--bg-g), var(--bg-b));
