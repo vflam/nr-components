@@ -5,7 +5,7 @@
 import { dateFormat } from "@/assets/shared/util.ts";
 
 export default {
-  props: ["value", "modelValue"],
+  props: ["modelValue"],
   data() {
     return {
       dateString: null,
@@ -24,7 +24,6 @@ export default {
   methods: {
     change() {
       this.$emit("update:modelValue", new Date(this.dateString));
-      this.$emit("change");
     },
   },
 };

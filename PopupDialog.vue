@@ -1,7 +1,7 @@
 <template>
   <Teleport to="#popups" v-if="content">
     <div class="container" @click="stop">
-      <div class="veil" @click="close_popup"></div>
+      <div class="veil" @click="close_popup(true)"></div>
       <div class="box" :style="slotstyle">
         <div class="content">
           <slot />
@@ -9,7 +9,7 @@
             <button :disabled="disabled" v-if="button" class="bouton close" @click="click_button">
               {{ button }}
             </button>
-            <button v-if="!noclose" class="bouton close" @click="close_popup">
+            <button v-if="!noclose" class="bouton close" @click="close_popup(true)">
               {{ text }}
             </button>
           </div>
@@ -22,9 +22,9 @@
 <script lang="ts">
 export default {
   name: "PopupDialog",
-  emits: ["button", "close", "input", "update:modelValue", "cancel"],
+  emits: ["button", "close", "update:modelValue", "cancel"],
   methods: {
-    stop(event) {
+    stop(event: any) {
       event.stopImmediatePropagation();
     },
     click_button() {
@@ -169,5 +169,13 @@ export default {
   top: 4px;
   right: 4px;
   cursor: pointer;
+}
+
+.container > div {
+  overflow: visible;
+}
+
+.content {
+  overflow: visible;
 }
 </style>

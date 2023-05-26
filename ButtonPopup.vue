@@ -3,7 +3,7 @@
     <button class="bouton">
       <slot name="button" />
     </button>
-    <PopupDialog class="pop" v-if="show" @close="show = false">
+    <PopupDialog v-if="show" @close="show = false">
       <h3>
         <slot name="button" />
       </h3>
