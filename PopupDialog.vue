@@ -20,10 +20,8 @@
 </template>
 
 <script lang="ts">
-import { Teleport } from "./js/teleport";
 export default {
   name: "PopupDialog",
-  components: { Teleport },
   emits: ["button", "close", "input", "update:modelValue", "cancel"],
   methods: {
     stop(event) {
@@ -32,13 +30,11 @@ export default {
     click_button() {
       this.$emit("button");
       this.content = false;
-      this.$emit("input", this.content);
       this.$emit("update:modelValue", this.content);
       this.$emit("close");
     },
     close_popup(emit = true) {
       this.content = false;
-      this.$emit("input", this.content);
       this.$emit("update:modelValue", this.content);
       if (emit) {
         this.$emit("cancel");
@@ -61,10 +57,6 @@ export default {
   },
   props: {
     modelValue: {
-      default: true,
-      type: Boolean,
-    },
-    value: {
       default: true,
       type: Boolean,
     },
@@ -102,7 +94,7 @@ export default {
   },
   data() {
     return {
-      content: globalThis.isVue3 ? this.modelValue : this.value,
+      content: this.modelValue,
     };
   },
 };

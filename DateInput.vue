@@ -13,17 +13,16 @@ export default {
   },
 
   created() {
-    let val = this.value || this.modelValue;
+    let val = this.modelValue;
     if (val == null) {
       this.dateString = dateFormat(new Date());
     } else {
-      this.dateString = dateFormat(this.value);
+      this.dateString = dateFormat(this.modelValue);
     }
   },
 
   methods: {
     change() {
-      this.$emit("input", new Date(this.dateString));
       this.$emit("update:modelValue", new Date(this.dateString));
       this.$emit("change");
     },
