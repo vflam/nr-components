@@ -306,11 +306,6 @@ input[type="radio"] {
   }
 }
 
-.dottedTitle {
-  border-bottom: $dotted_border;
-  margin-bottom: 5px;
-}
-
 .textbf {
   font-weight: bold;
 }
@@ -339,13 +334,6 @@ input[type="radio"] {
   margin-top: 10px;
 }
 
-h3.arrowTitle {
-  margin: 0;
-  font-size: 16px;
-  cursor: pointer;
-  padding: 5px;
-  padding-left: 3px;
-}
 
 .bigCheck {
   width: 16px;
