@@ -1,39 +1,23 @@
 <template>
-  <div
-    :class="{
-      box: !nobox && !noboxindent,
-      nobox: nobox,
-      nocollapse: !collapsible,
-      noboxindent: noboxindent,
-      verticalbox: collapsed && vertical,
-    }"
-    class="collapsibleBox"
-  >
-    <h3
-      v-if="!notitle"
-      :class="[
-        {
-          arrowTitle: collapsible,
-          normalTitle: !collapsible,
-          collapsed: collapsible && collapsed,
-        },
-        title,
-      ]"
-      @click="titleSwitch"
-    >
-      <img
-        v-if="collapsible"
-        :src="dropdownSrc"
-        class="icon arrow"
-        @click.stop="collapseSwitch"
-      />
+  <div :class="{
+    box: !nobox && !noboxindent,
+    nobox: nobox,
+    nocollapse: !collapsible,
+    noboxindent: noboxindent,
+    verticalbox: collapsed && vertical,
+  }" class="collapsibleBox">
+    <h3 v-if="!notitle" :class="[
+      {
+        arrowTitle: collapsible,
+        normalTitle: !collapsible,
+        collapsed: collapsible && collapsed,
+      },
+      title,
+    ]" @click="titleSwitch">
+      <img v-if="collapsible" :src="dropdownSrc" class="icon arrow" @click.stop="collapseSwitch" />
       <slot name="title" class="title" />
     </h3>
-    <div
-      v-if="initiated"
-      v-show="!collapsed || !collapsible"
-      class="boxContent"
-    >
+    <div v-if="initiated" v-show="!collapsed || !collapsible" class="boxContent">
       <slot name="content" />
     </div>
   </div>
@@ -142,10 +126,10 @@ export default {
 .arrowTitle {
   cursor: pointer;
   position: relative;
+  padding: 3px;
 
   img.arrow {
     vertical-align: middle;
-    margin-right: 7px;
   }
 }
 
@@ -173,7 +157,7 @@ h3 {
   }
 }
 
-.nobox > .boxContent {
+.nobox>.boxContent {
   padding: 0px;
 }
 
@@ -187,6 +171,8 @@ h3 {
   h3 {
     text-orientation: upright;
     writing-mode: vertical-rl;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 </style>
