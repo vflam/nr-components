@@ -130,6 +130,7 @@ export default {
 
   img.arrow {
     vertical-align: middle;
+    margin-right: 5px;
   }
 }
 
