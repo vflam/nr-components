@@ -170,7 +170,7 @@ h3 {
   width: 25px;
 
   h3 {
-    text-orientation: upright;
+    text-orientation: mixed;
     writing-mode: vertical-rl;
     padding-left: 0px !important;
     padding-right: 0px !important;
