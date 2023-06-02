@@ -195,6 +195,7 @@ h3 {
 }
 
 .autocomplete-input,
+.iconselect-input,
 select,
 input[type="date"],
 input[type="number"],
@@ -254,6 +255,7 @@ input[type="radio"] {
       input[type="range"],
       select,
       a.bouton,
+      .iconselect-input,
       button.bouton {
         height: 33px;
         max-width: 250px;
