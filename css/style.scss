@@ -500,3 +500,11 @@ h3.popup {
 .draw {
   color: rgb(107, 107, 107);
 }
+
+
+.hover-darken:hover {
+  background-color: rgba(0, 0, 0, 0.15);
+}
+.hover-brighten:hover {
+  background-color: rgba(1, 1, 1, 0.15);
+}
