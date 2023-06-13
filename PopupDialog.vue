@@ -161,10 +161,12 @@ export default {
 }
 
 .close-wrap {
-  text-align: center;
-  display: grid;
-  grid-gap: 10px;
-  grid-auto-flow: column;
+  margin: auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
 .x {
