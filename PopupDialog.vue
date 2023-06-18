@@ -175,12 +175,4 @@ export default {
   right: 4px;
   cursor: pointer;
 }
-
-.container > div {
-  overflow: visible;
-}
-
-.content {
-  overflow: visible;
-}
 </style>
