@@ -42,7 +42,7 @@ export default {
       }
     },
     esc_close_popup(e: KeyboardEvent) {
-      if (e.key.toLowerCase() === "escape") {
+      if (e.key?.toLowerCase() === "escape") {
         if (this.content) {
           this.close_popup();
         }
