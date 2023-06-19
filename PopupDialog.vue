@@ -117,8 +117,8 @@ export default {
       rgba(var(--bg-r), var(--bg-g), var(--bg-b), var(--bg-a)),
       rgba(var(--bg-r), var(--bg-g), var(--bg-b), var(--bg-a))
     ),
-    url(/assets/images/no.jpg);
-  background-size: var(--bg-size);
+    var(--bg-texture);
+  background: var(--bg-size);
   background-color: rgb(var(--bg-r), var(--bg-g), var(--bg-b));
   z-index: 1001;
   display: inline-block;
