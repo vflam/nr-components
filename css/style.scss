@@ -512,3 +512,7 @@ h3.popup {
   text-decoration:underline;
   text-decoration-style: dotted;
 }
+.scrollable {
+  height: 100%;
+  overflow-y: auto;
+}
