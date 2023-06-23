@@ -517,3 +517,17 @@ h3.popup {
   height: 100%;
   overflow-y: auto;
 }
+
+
+.border {
+  border: 1px solid $box_border;
+  border-collapse: collapse;
+}
+
+.bg {
+  background-color: rgb(var(--bg-r), var(--bg-g), var(--bg-b));
+
+}
+.text {
+  color: $fontColor;
+}
