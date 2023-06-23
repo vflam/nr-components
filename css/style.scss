@@ -478,7 +478,8 @@ input {
 .precision {
   color: $gray;
   font-style: italic;
-  font-weight: normal;
+  font-weight: normal  !important;
+  text-shadow: none;
 }
 
 h3.popup {
