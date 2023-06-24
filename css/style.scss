@@ -169,6 +169,10 @@ h3 {
       margin-right: 10px !important;
     }
   }
+
+  &.titreTeam {
+    background-color: var(--forces_background);
+  }
 }
 
 .imageBouton {
@@ -532,3 +536,4 @@ h3.popup {
 .text {
   color: $fontColor;
 }
+
