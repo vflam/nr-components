@@ -537,3 +537,7 @@ h3.popup {
   color: $fontColor;
 }
 
+input[type=text]:disabled {
+  color:$gray;
+  border-color: $box_border;
+}
