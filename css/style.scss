@@ -541,3 +541,20 @@ input[type=text]:disabled {
   color:$gray;
   border-color: $box_border;
 }
+
+
+
+@media print {
+  body {
+    > *:not(.printable) {
+      display: none;
+    }
+  }
+}
+
+
+@media print {
+  .printer-hidden {
+    display: none
+  }
+}
