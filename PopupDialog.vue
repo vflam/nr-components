@@ -206,6 +206,7 @@ export default {
   }
   .content {
     zoom: 70%;
+    max-width: 1000px;
   }
 }
 .print {
