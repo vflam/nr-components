@@ -216,12 +216,10 @@ export default {
   display: flex;
   .close-wrap {
     position: sticky;
-    left: 50%;
-    right: 50%;
-    margin: unset;
+    margin-left: auto;
+    margin-right: auto;
     width: 250px;
     bottom: 20px;
-    transform: translateX(-50%);
   }
   @media print {
     overflow: visible;
@@ -229,6 +227,7 @@ export default {
   .content {
     margin-left: auto;
     margin-right: auto;
+    // max-width: 1000px;
   }
 }
 </style>
