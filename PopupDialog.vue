@@ -51,8 +51,8 @@ export default {
       }
     },
     before_print(e: Event) {
-      const node = this.$refs.content as HTMLDivElement;
-      let cloned = node.cloneNode(true);
+      const node = this.$refs.content as HTMLElement;
+      let cloned = node.cloneNode(true) as HTMLElement;
       document.body.appendChild(cloned);
       cloned.classList.add("printable");
       const after_print = () => {
