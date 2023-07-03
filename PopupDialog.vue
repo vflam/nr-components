@@ -9,7 +9,6 @@
             <button :disabled="disabled" v-if="button" class="bouton close" @click="click_button">
               {{ button }}
             </button>
-            <button v-if="print" class="bouton close" @click="do_print"> Print </button>
             <button v-if="!noclose" class="bouton close" @click="close_popup(true)">
               {{ text }}
             </button>
@@ -30,9 +29,11 @@ export default {
     },
     click_button() {
       this.$emit("button");
-      this.content = false;
-      this.$emit("update:modelValue", this.content);
-      this.$emit("close");
+      if (this.buttonclose) {
+        this.content = false;
+        this.$emit("update:modelValue", this.content);
+        this.$emit("close");
+      }
     },
     close_popup(emit = true) {
       this.content = false;
@@ -48,9 +49,6 @@ export default {
           this.close_popup();
         }
       }
-    },
-    do_print() {
-      print();
     },
     before_print(e: Event) {
       const node = this.$refs.content as HTMLDivElement;
@@ -106,6 +104,10 @@ export default {
     print: {
       type: Boolean,
       default: false,
+    },
+    buttonclose: {
+      type: Boolean,
+      default: true,
     },
   },
   watch: {
