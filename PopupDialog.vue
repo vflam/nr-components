@@ -1,6 +1,6 @@
 <template>
   <Teleport to="#popups" v-if="content">
-    <div class="container" @click="stop">
+    <div class="container" @click="stop" :class="{ allowoverflow: overflow }">
       <div class="veil" @click="close_popup(true)"></div>
       <div class="box" :class="{ print }" :style="slotstyle">
         <div class="content" ref="content">
@@ -109,6 +109,10 @@ export default {
       type: Boolean,
       default: true,
     },
+    overflow: {
+      type: Boolean,
+      default: false,
+    },
   },
   watch: {
     modelValue(n) {
@@ -153,16 +157,25 @@ export default {
   top: 50%;
   transform: translate(-50%, -50%);
   max-height: 80%;
-  overflow: auto;
+
   width: max-content;
   max-width: min(95%, 1200px);
   min-width: 300px;
+
+  overflow-y: auto;
 }
 
 .content {
-  overflow: auto;
+  overflow-y: auto;
 }
 
+.allowoverflow .content {
+  overflow-y: visible;
+}
+
+.allowoverflow .box {
+  overflow-y: visible;
+}
 .veil {
   position: fixed;
   top: 0px;
