@@ -92,12 +92,11 @@ p {
   margin-bottom: 0 !important;
 }
 
+.inputstyle,
 .bouton,
 .dg-btn--ok,
 .dg-btn--cancel {
   text-align: center !important;
-  font-size: 16px;
-  padding-right: 0px;
   position: relative;
   display: inline-block;
   text-decoration: none;
@@ -108,16 +107,26 @@ p {
   list-style-type: none;
   cursor: pointer;
   box-shadow: 2px 2px 5px -2px $box_border;
-  padding: 5px;
-  padding-top: 7px;
   background-repeat: no-repeat;
-  height: 33px;
-  width: 230px;
   box-sizing: border-box;
+  font-size: 16px;
+  height: 33px;
 
   &:hover {
     filter: brightness(110%);
   }
+}
+
+.bouton,
+.dg-btn--ok,
+.dg-btn--cancel {
+  font-size: 16px;
+  padding-right: 0px;
+  padding: 5px;
+  padding-top: 7px;
+  height: 33px;
+  width: 230px;
+  box-sizing: border-box;
 }
 
 .rotated {
