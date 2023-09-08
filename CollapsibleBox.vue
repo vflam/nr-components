@@ -1,19 +1,26 @@
 <template>
-  <div :class="{
-    box: !nobox && !noboxindent,
-    nobox: nobox,
-    nocollapse: !collapsible,
-    noboxindent: noboxindent,
-    verticalbox: collapsed && vertical,
-  }" class="collapsibleBox">
-    <h3 v-if="!notitle" :class="[
-      {
-        arrowTitle: collapsible,
-        normalTitle: !collapsible,
-        collapsed: collapsible && collapsed,
-      },
-      title,
-    ]" @click="titleSwitch">
+  <div
+    :class="{
+      box: !nobox && !noboxindent,
+      nobox: nobox,
+      nocollapse: !collapsible,
+      noboxindent: noboxindent,
+      verticalbox: collapsed && vertical,
+    }"
+    class="collapsibleBox"
+  >
+    <h3
+      v-if="!notitle"
+      :class="[
+        {
+          arrowTitle: collapsible,
+          normalTitle: !collapsible,
+          collapsed: collapsible && collapsed,
+        },
+        title,
+      ]"
+      @click="titleSwitch"
+    >
       <img v-if="collapsible" :src="dropdownSrc" class="icon arrow" @click.stop="collapseSwitch" />
       <slot name="title" class="title" />
     </h3>
@@ -87,10 +94,7 @@ export default {
       if (this.$optionStore.options.appearence.dropdownStyle) {
         n = this.$optionStore.options.appearence.dropdownStyle;
       }
-      let images = [
-        `/assets/icons/right${n}.png`,
-        `/assets/icons/down${n}.png`,
-      ];
+      let images = [`/assets/icons/right${n}.png`, `/assets/icons/down${n}.png`];
       let index = this.collapsed ? 0 : 1;
       if (this.vertical) {
         index = 1 - index;
@@ -154,11 +158,11 @@ h3 {
 
 .noboxindent {
   .boxContent {
-    border-left: 1px #ccc solid;
+    border-left: 1px $box_border solid;
   }
 }
 
-.nobox>.boxContent {
+.nobox > .boxContent {
   padding: 0px;
 }
 
@@ -174,7 +178,6 @@ h3 {
     writing-mode: vertical-rl;
     padding-left: 0px !important;
     padding-right: 0px !important;
-    ;
   }
 
   img {
