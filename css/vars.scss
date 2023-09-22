@@ -26,9 +26,9 @@ $orange: "#805300";
 
 
 $font: var(--font, sans-serif);
-$fontSize: var(--fontSize, 16px);
+$fontSize: var(min(max(--fontSize,12), 40), 16px);
 $fontHeader: var(--fontHeader, sans-serif);
-$fontHeaderSize: var(--fontHeaderSize, 16px);
+$fontHeaderSize: var(min(max(--fontHeaderSize,12), 40), 16px);
 $fontHeaderTransform: var(--fontHeaderTransform, "none");
 $fontButton: var(--fontButton, sans-serif);
-$fontButtonSize: var(--fontButtonSize, 16px);
+$fontButtonSize: var(min(max(--fontButtonSize,12), 40), 16px);
