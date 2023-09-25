@@ -17,6 +17,7 @@
           normalTitle: !collapsible,
           collapsed: collapsible && collapsed,
           titleClickCollapsible: collapsible && !collapsed && titleCollapse,
+          titleClickEffect: collapsed || collapsible,
         },
         title,
       ]"
@@ -128,8 +129,10 @@ export default {
 <style scoped lang="scss">
 @import "@/shared_components/css/vars.scss";
 
-.arrowTitle {
+.arrowTitle.titleClickEffect {
   cursor: pointer;
+}
+.arrowTitle {
   position: relative;
   padding: 3px;
 
