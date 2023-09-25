@@ -16,6 +16,7 @@
           arrowTitle: collapsible,
           normalTitle: !collapsible,
           collapsed: collapsible && collapsed,
+          titleClickCollapsible: collapsible && !collapsed && titleCollapse,
         },
         title,
       ]"
@@ -170,6 +171,12 @@ h3 {
   filter: brightness(95%);
 }
 
+.titleClickCollapsible:hover {
+  filter: brightness(95%) !important;
+}
+.arrowTitle.collapsed:hover {
+  filter: brightness(105%) !important;
+}
 .verticalbox {
   width: 25px;
 
