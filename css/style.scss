@@ -96,6 +96,19 @@ p {
   margin-bottom: 0 !important;
 }
 
+.inputlike {
+  border-width: 1px !important;
+  border-color: $box_border !important;
+  border-style: solid;
+  list-style-type: none;
+  cursor: text;
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+  font-weight: normal;
+  &:hover {
+    filter: brightness(110%);
+  }
+}
 .inputstyle,
 .bouton,
 .dg-btn--ok,
