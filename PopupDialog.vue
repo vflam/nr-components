@@ -5,14 +5,14 @@
       <div class="box" :class="{ print }" :style="slotstyle">
         <div class="content" ref="content">
           <slot />
-          <div class="close-wrap">
-            <button :disabled="disabled" v-if="button" class="bouton close" @click="click_button">
-              {{ button }}
-            </button>
-            <button v-if="!noclose" class="bouton close" @click="close_popup(true)">
-              {{ text }}
-            </button>
-          </div>
+        </div>
+        <div class="close-wrap">
+          <button :disabled="disabled" v-if="button" class="bouton close" @click="click_button">
+            {{ button }}
+          </button>
+          <button v-if="!noclose" class="bouton close" @click="close_popup(true)">
+            {{ text }}
+          </button>
         </div>
       </div>
     </div>
@@ -163,10 +163,12 @@ export default {
   min-width: 300px;
 
   overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.3) rgba(0, 0, 0, 0);
 }
 
 .content {
-  overflow-y: auto;
+  padding-bottom: 10px;
 }
 
 .allowoverflow .content {
@@ -201,11 +203,13 @@ export default {
 
 .close-wrap {
   margin: auto;
-  width: 100%;
+  width: calc((100%) - 10px);
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
+  position: sticky;
+  bottom: 0px;
 }
 
 .x {
@@ -230,6 +234,7 @@ export default {
   max-width: unset !important;
   max-height: unset !important;
   display: flex;
+  flex-direction: column;
   .close-wrap {
     position: sticky;
     margin-left: auto;
