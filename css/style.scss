@@ -474,8 +474,11 @@ input:invalid {
   }
 }
 
+i {
+  font-style: $italic;
+}
 .italic {
-  font-style: italic;
+  font-style: $italic;
 }
 .bold {
   font-weight: bold;
@@ -513,7 +516,7 @@ input {
 
 .precision {
   color: $gray;
-  font-style: italic;
+  font-style: $italic;
   font-weight: normal  !important;
   text-shadow: none;
 }
@@ -603,13 +606,12 @@ h3.popupTitle {
 }
 
 .secondaryCategory {
-  background-color: rgba(255, 51, 0, 0.09);
+  background-color: rgba(0, 0, 0, 0.09);
+  display: inline-block;
   padding: 2px;
   padding-top: 1px;
   padding-bottom: 1px;
-  margin-right: 7px;
   border-radius: 5px;
   font-weight: normal;
-  font-style: italic;
+  margin-bottom: 3px;
 }
-
