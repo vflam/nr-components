@@ -7,6 +7,7 @@
           <slot />
         </div>
         <div class="close-wrap">
+          <slot name="boutons"></slot>
           <button :disabled="disabled" v-if="button" class="bouton close" @click="click_button">
             {{ button }}
           </button>
