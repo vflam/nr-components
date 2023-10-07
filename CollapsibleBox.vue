@@ -16,6 +16,8 @@
           arrowTitle: collapsible,
           normalTitle: !collapsible,
           collapsed: collapsible && collapsed,
+          titleClickCollapsible: collapsible && !collapsed && titleCollapse,
+          titleClickEffect: collapsed || collapsible,
         },
         title,
       ]"
@@ -127,8 +129,10 @@ export default {
 <style scoped lang="scss">
 @import "@/shared_components/css/vars.scss";
 
-.arrowTitle {
+.arrowTitle.titleClickEffect {
   cursor: pointer;
+}
+.arrowTitle {
   position: relative;
   padding: 3px;
 
@@ -170,6 +174,12 @@ h3 {
   filter: brightness(95%);
 }
 
+.titleClickCollapsible:hover {
+  filter: brightness(95%) !important;
+}
+.arrowTitle.collapsed:hover {
+  filter: brightness(105%) !important;
+}
 .verticalbox {
   width: 25px;
 
