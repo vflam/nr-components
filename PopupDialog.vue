@@ -114,13 +114,19 @@ export default {
       type: Boolean,
       default: false,
     },
+    keeponroutechange: {
+      type: Boolean,
+      default: false,
+    },
   },
   watch: {
     modelValue(n) {
       this.content = n;
     },
     $route() {
-      this.close_popup(false);
+      if (!this.keeponroutechange) {
+        this.close_popup(false);
+      }
     },
   },
   data() {
