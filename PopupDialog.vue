@@ -118,6 +118,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    width: {
+      type: String,
+      default: "300px",
+    },
   },
   watch: {
     modelValue(n) {
@@ -167,7 +171,7 @@ export default {
 
   width: max-content;
   max-width: min(95%, 1200px);
-  min-width: 300px;
+  min-width: v-bind(width);
 
   overflow-y: auto;
   scrollbar-width: thin;
