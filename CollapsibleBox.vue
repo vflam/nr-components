@@ -8,6 +8,7 @@
       verticalbox: collapsed && vertical,
     }"
     class="collapsibleBox"
+    :id="id"
   >
     <h3
       v-if="!notitle"
@@ -32,7 +33,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 export default {
   props: {
     collapsible: {
@@ -75,8 +76,21 @@ export default {
       type: Boolean,
       default: true,
     },
+    id: {
+      type: String,
+      required: false,
+    },
   },
-
+  mounted() {
+    console.log(this.id, this.$route.hash, this.collapsed);
+    if (this.id && this.$route.hash) {
+      if (this.$route.hash.substring(1) === this.id && this.collapsed) {
+        this.$nextTick(() => {});
+        this.collapseSwitch();
+        (this.$el as HTMLDivElement)?.scrollIntoView({ block: "center" });
+      }
+    }
+  },
   data() {
     return {
       collapsed: true,
