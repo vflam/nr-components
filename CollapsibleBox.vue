@@ -174,12 +174,6 @@ h3 {
   padding: 5px;
 }
 
-.noboxindent {
-  .boxContent {
-    border-left: 1px $box_border solid;
-  }
-}
-
 .nobox > .boxContent {
   padding: 0px;
 }
