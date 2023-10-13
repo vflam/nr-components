@@ -82,12 +82,12 @@ export default {
     },
   },
   mounted() {
-    console.log(this.id, this.$route.hash, this.collapsed);
     if (this.id && this.$route.hash) {
       if (this.$route.hash.substring(1) === this.id && this.collapsed) {
-        this.$nextTick(() => {});
-        this.collapseSwitch();
-        (this.$el as HTMLDivElement)?.scrollIntoView({ block: "center" });
+        this.$nextTick(() => {
+          this.collapseSwitch();
+          (this.$el as HTMLDivElement)?.scrollIntoView({ block: "center" });
+        });
       }
     }
   },
