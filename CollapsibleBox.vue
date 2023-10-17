@@ -125,8 +125,10 @@ export default {
       this.initiated = true;
       if (this.collapsed == false) {
         this.$emit("open");
+        this.$emit("change");
       } else {
         this.$emit("close");
+        this.$emit("change");
       }
     },
 
