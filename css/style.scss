@@ -108,6 +108,9 @@ p {
   &:hover {
     filter: brightness(110%);
   }
+  background-color: $input_background;
+  color: $fontColor
+
 }
 .inputstyle,
 .bouton,
