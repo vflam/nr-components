@@ -1,7 +1,7 @@
 <template>
   <Teleport to="#popups" v-if="content">
     <div class="container" @click="stop" :class="{ allowoverflow: overflow }">
-      <div class="veil" @click="close_popup(true)"></div>
+      <div class="veil" @click="veil_close_popup"></div>
       <div class="box" :class="{ print }" :style="slotstyle">
         <div class="content" ref="content">
           <slot />
@@ -35,6 +35,12 @@ export default {
         this.$emit("update:modelValue", this.content);
         this.$emit("close");
       }
+    },
+    veil_close_popup() {
+      if (this.nocloseonclickoutside) {
+        return;
+      }
+      this.close_popup(true);
     },
     close_popup(emit = true) {
       this.content = false;
@@ -121,6 +127,10 @@ export default {
     width: {
       type: String,
       default: "300px",
+    },
+    nocloseonclickoutside: {
+      type: Boolean,
+      default: false,
     },
   },
   watch: {
