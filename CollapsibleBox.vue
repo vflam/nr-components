@@ -161,6 +161,7 @@ export default {
 .normalTitle {
   position: relative;
   padding-top: 5px;
+  padding-bottom: 5px;
   padding-left: 8px;
 }
 
