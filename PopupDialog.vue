@@ -181,7 +181,7 @@ export default {
 
   width: max-content;
   max-width: min(95%, 1200px);
-  min-width: v-bind(width);
+  min-width: min(min(95%, 1200px), v-bind(width));
 
   overflow-y: auto;
   scrollbar-width: thin;
