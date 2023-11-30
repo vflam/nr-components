@@ -24,6 +24,9 @@
 export default {
   name: "PopupDialog",
   emits: ["button", "close", "update:modelValue", "cancel"],
+  created() {
+    history.pushState({ popupOpen: true }, "");
+  },
   methods: {
     stop(event: any) {
       event.stopImmediatePropagation();
@@ -46,6 +49,7 @@ export default {
       this.content = false;
       this.$emit("update:modelValue", this.content);
       if (emit) {
+        history.back();
         this.$emit("cancel");
         this.$emit("close");
       }
