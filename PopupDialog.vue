@@ -213,6 +213,10 @@ export default {
   opacity: 0.7;
 }
 
+.box {
+  padding: 5px;
+}
+
 @media screen and (max-width: $large_mode) {
   .box {
     width: 95%;
