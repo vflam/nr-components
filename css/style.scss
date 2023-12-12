@@ -622,3 +622,11 @@ h3.popupTitle {
   font-weight: normal;
   margin-bottom: 3px;
 }
+
+.flexListElement {
+  padding: 5px;
+  border: 1px $gray solid;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: $box_shadow;
+}
