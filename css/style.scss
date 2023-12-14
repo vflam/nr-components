@@ -69,8 +69,19 @@ table.dataTable {
     background-color: rgba(0, 0, 0, 0.1);
   }
 
-  tr:hover {
-    background-color: rgba(255, 255, 255, 0.25) !important;
+  tr {
+    position: relative;
+  }
+  
+  tr:hover::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(201, 201, 201, 0.2); /* Adjust color and opacity */
+    pointer-events: none; /* Allow clicks to pass through */
   }
 }
 
