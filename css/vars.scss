@@ -23,13 +23,14 @@ $input_highlights: var(--input-highlights);
 $input_background: var(--input-background);
 $orange: "#805300";
 
-
-
 $font: var(--font, sans-serif);
-$fontSize: min(max(var(--fontSize, 16px), 12), 40);
+$fontSize: min(max(var(--fontSize, 16px), 12px), 40px);
 $fontHeader: var(--fontHeader, sans-serif);
-$fontHeaderSize: min(max(var(--fontHeaderSize, 16px), 12), 40);
+$fontHeaderSize: min(max(var(--fontHeaderSize, 16px), 12px), 40px);
 $fontHeaderTransform: var(--fontHeaderTransform, "none");
 $fontButton: var(--fontButton, sans-serif);
 $fontButtonSize: min(max(var(--fontButtonSize, 16px), 12px), 40px);
 $italic: var(--italic, "italic");
+
+$hoverColor: rgba(var(--hover-color-r),var(--hover-color-g),var(--hover-color-b), var(--hover-transparency));
+$hoverTransparency: var(--hover-transparency);
