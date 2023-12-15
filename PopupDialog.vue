@@ -48,8 +48,8 @@ export default {
     close_popup(emit = true) {
       this.content = false;
       this.$emit("update:modelValue", this.content);
+      history.back();
       if (emit) {
-        history.back();
         this.$emit("cancel");
         this.$emit("close");
       }
@@ -139,6 +139,7 @@ export default {
   },
   watch: {
     modelValue(n) {
+      console.log("changed");
       this.content = n;
     },
     $route() {
