@@ -11,7 +11,7 @@
           <button :disabled="disabled" v-if="button" class="bouton close" @click="click_button">
             {{ button }}
           </button>
-          <button v-if="!noclose" class="bouton close" @click="close_popup(true)">
+          <button v-if="!noclose" class="bouton close" @click="button_close_popup">
             {{ text }}
           </button>
         </div>
@@ -24,43 +24,49 @@
 export default {
   name: "PopupDialog",
   emits: ["button", "close", "update:modelValue", "cancel"],
-  created() {
-    history.pushState({ popupOpen: true }, "");
-  },
+
   methods: {
     stop(event: any) {
       event.stopImmediatePropagation();
     },
+
     click_button() {
       this.$emit("button");
-      if (this.buttonclose) {
-        this.content = false;
-        this.$emit("update:modelValue", this.content);
-        this.$emit("close");
-      }
     },
+
     veil_close_popup() {
       if (this.nocloseonclickoutside) {
         return;
       }
-      this.close_popup(true);
+      this.$emit("close");
+      history.back();
     },
-    close_popup(emit = true) {
+
+    button_close_popup() {
+      this.$emit("close");
+      history.back();
+    },
+
+    doClose(emit = true) {
       this.content = false;
       this.$emit("update:modelValue", this.content);
-      history.back();
       if (emit) {
         this.$emit("cancel");
         this.$emit("close");
       }
     },
+
     esc_close_popup(e: KeyboardEvent) {
+      e.stopPropagation();
+      e.stopImmediatePropagation();
       if (e.key?.toLowerCase() === "escape") {
         if (this.content) {
-          this.close_popup();
+          this.$emit("close");
+          history.back();
         }
       }
     },
+
     before_print(e: Event) {
       const node = this.$refs.content as HTMLElement;
       let cloned = node.cloneNode(true) as HTMLElement;
@@ -72,18 +78,23 @@ export default {
       addEventListener("afterprint", after_print, { once: true });
     },
   },
+
   mounted() {
+    history.pushState({ popupOpen: true, url: window.location.toString() }, "");
+
     addEventListener("keydown", this.esc_close_popup);
     if (this.print) {
       addEventListener("beforeprint", this.before_print);
     }
   },
+
   unmounted() {
     removeEventListener("keydown", this.esc_close_popup);
     if (this.print) {
       removeEventListener("beforeprint", this.before_print);
     }
   },
+
   props: {
     modelValue: {
       default: true,
@@ -116,10 +127,6 @@ export default {
       type: Boolean,
       default: false,
     },
-    buttonclose: {
-      type: Boolean,
-      default: true,
-    },
     overflow: {
       type: Boolean,
       default: false,
@@ -139,12 +146,11 @@ export default {
   },
   watch: {
     modelValue(n) {
-      console.log("changed");
       this.content = n;
     },
     $route() {
       if (!this.keeponroutechange) {
-        this.close_popup(false);
+        this.doClose(false);
       }
     },
   },
@@ -226,7 +232,6 @@ export default {
 }
 
 .close {
-  margin-top: 10px;
   display: inline-block;
   text-align: center;
 }
