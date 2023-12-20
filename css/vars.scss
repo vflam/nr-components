@@ -8,6 +8,10 @@ $large_mode: 700px;
 $very_large_mode: 1250px;
 $triple_split_view: 1250px;
 
+$background_color: var(--bg);
+$background: var(--bg), var(--bg-texture);
+$popups_background: var(--popups_background);
+
 $gray: var(--color-gray);
 $blue: var(--color-blue);
 $red: var(--color-red);
@@ -20,7 +24,7 @@ $dotted_border: 1px #555 dotted;
 $title_background: var(--title);
 $forces_background: var(--forces_background);
 $units_background: var(--units_background);
-$background_color:  rgba(var(--bg-r), var(--bg-g), var(--bg-b), 1);
+
 
 $input_highlights: var(--input-highlights);
 $input_background: var(--input-background);

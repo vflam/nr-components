@@ -589,9 +589,9 @@ h3.popup {
 }
 
 .bg {
-  background-color: rgb(var(--bg-r), var(--bg-g), var(--bg-b));
-
+  background-color: $background_color;
 }
+
 .text {
   color: $fontColor;
 }
