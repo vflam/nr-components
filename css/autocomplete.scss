@@ -1,3 +1,5 @@
+@import "@/shared_components/css/vars.scss";
+
 .autocomplete-input {
   border: 1px solid #eee;
   width: 100% !important;
@@ -81,7 +83,7 @@
 
 .autocomplete-result:hover,
 .autocomplete-result[aria-selected=true] {
-  background-color: rgba(0, 0, 0, .06)
+  background: $hoverColor;
 }
 
 @keyframes rotate {

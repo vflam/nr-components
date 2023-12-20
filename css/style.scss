@@ -82,7 +82,7 @@ table.dataTable {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: $hoverColor;
+  background: $hoverColor;
   //background-color: rgba(201, 201, 201, 0.2); /* Adjust color and opacity */
   pointer-events: none; /* Allow clicks to pass through */
 }

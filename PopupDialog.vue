@@ -38,32 +38,30 @@ export default {
       if (this.nocloseonclickoutside) {
         return;
       }
-      this.$emit("close");
+
       history.back();
     },
 
     button_close_popup() {
-      this.$emit("close");
       history.back();
     },
 
-    doClose(emit = true) {
+    doClose() {
       this.content = false;
       this.$emit("update:modelValue", this.content);
-      if (emit) {
-        this.$emit("cancel");
-        this.$emit("close");
-      }
+      this.$emit("cancel");
+      this.$emit("close");
+    },
+
+    popstate(e: PopStateEvent) {
+      this.doClose();
     },
 
     esc_close_popup(e: KeyboardEvent) {
       e.stopPropagation();
       e.stopImmediatePropagation();
       if (e.key?.toLowerCase() === "escape") {
-        if (this.content) {
-          this.$emit("close");
-          history.back();
-        }
+        history.back();
       }
     },
 
@@ -86,10 +84,12 @@ export default {
     if (this.print) {
       addEventListener("beforeprint", this.before_print);
     }
+    addEventListener("popstate", this.popstate);
   },
 
   unmounted() {
     removeEventListener("keydown", this.esc_close_popup);
+    removeEventListener("popstate", this.popstate);
     if (this.print) {
       removeEventListener("beforeprint", this.before_print);
     }
@@ -148,11 +148,13 @@ export default {
     modelValue(n) {
       this.content = n;
     },
-    $route() {
+    /*     $route(to, from, next) {
+      debugger;
+      console.log(from);
       if (!this.keeponroutechange) {
-        this.doClose(false);
+        this.doClose();
       }
-    },
+    }, */
   },
   data() {
     return {
