@@ -72,10 +72,13 @@ table.dataTable {
   tr {
     position: relative;
   }
-
 }
 
-.dataTable tr:hover::after, .highlight:hover:after {
+.dataTable tr:hover {
+  background: $hoverColor;
+}
+
+.highlight:hover:after {
   content: "";
   position: absolute;
   top: 0;
@@ -83,10 +86,8 @@ table.dataTable {
   right: 0;
   bottom: 0;
   background: $hoverColor;
-  //background-color: rgba(201, 201, 201, 0.2); /* Adjust color and opacity */
-  pointer-events: none; /* Allow clicks to pass through */
+  pointer-events: none;
 }
-
 
 p {
   text-align: justify;
@@ -123,8 +124,7 @@ p {
     filter: brightness(110%);
   }
   background-color: $input_background;
-  color: $fontColor
-
+  color: $fontColor;
 }
 .inputstyle,
 .bouton,
@@ -194,14 +194,13 @@ h3 {
     margin-bottom: 0;
     background: $title_background;
     padding: 5px !important;
-  
   }
 
   &.titreForce {
     display: grid;
     grid-template-columns: min-content 1fr;
     align-items: start;
-    align-content:start;
+    align-content: start;
     margin-top: 0;
     margin-bottom: 0;
     background: $forces_background;
@@ -403,7 +402,6 @@ input[type="radio"] {
   margin-top: 10px !important;
 }
 
-
 .bigCheck {
   width: 16px;
   height: 16px;
@@ -523,19 +521,19 @@ pre {
   }
 }
 
-input {  
+input {
   color: var(--font-color);
-
 }
 
-.unselectable, img {
+.unselectable,
+img {
   user-select: none;
 }
 
 .precision {
   color: $gray;
   font-style: $italic;
-  font-weight: normal  !important;
+  font-weight: normal !important;
   text-shadow: none;
 }
 
@@ -566,7 +564,7 @@ h3.popup {
   background-color: var(--hover-brighten-color, rgba(255, 255, 255, 0.15));
 }
 .hastooltip {
-  text-decoration:underline;
+  text-decoration: underline;
   text-decoration-style: dotted;
 }
 .scrollable {
@@ -574,14 +572,12 @@ h3.popup {
   overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: rgba(0, 0, 0, 0.3) rgba(0, 0, 0, 0);
-
 }
 
-.scrollbarstyle{
+.scrollbarstyle {
   scrollbar-width: thin;
   scrollbar-color: rgba(0, 0, 0, 0.3) rgba(0, 0, 0, 0);
 }
-
 
 .border {
   border: 1px solid $box_border;
@@ -596,12 +592,10 @@ h3.popup {
   color: $fontColor;
 }
 
-input[type=text]:disabled {
-  color:$gray;
+input[type="text"]:disabled {
+  color: $gray;
   border-color: $box_border;
 }
-
-
 
 @media print {
   body {
@@ -611,10 +605,9 @@ input[type=text]:disabled {
   }
 }
 
-
 @media print {
   .printer-hidden {
-    display: none
+    display: none;
   }
 }
 
@@ -644,4 +637,8 @@ h3.popupTitle {
   border-radius: 10px;
   cursor: pointer;
   box-shadow: $box_shadow;
+}
+
+.imgBt:hover {
+  background-color: $hoverColor;
 }
