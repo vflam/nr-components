@@ -75,7 +75,7 @@ table.dataTable {
 
 }
 
-.dataTable tr:hover::after, tr.highlight:hover:after {
+.dataTable tr:hover::after, .highlight:hover:after {
   content: "";
   position: absolute;
   top: 0;
