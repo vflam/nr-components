@@ -177,6 +177,7 @@ export default {
 }
 
 .box {
+  background-color: $popups_background;
   background-image: $popups_background;
   z-index: 1001;
   display: inline-block;
