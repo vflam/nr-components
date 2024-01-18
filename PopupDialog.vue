@@ -32,6 +32,10 @@ export default {
 
     click_button() {
       this.$emit("button");
+      if (this.buttonclose) {
+        history.back();
+
+      }
     },
 
     veil_close_popup() {
@@ -127,6 +131,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    buttonclose: {
+      type: Boolean,
+      default: true,
+    },
     overflow: {
       type: Boolean,
       default: false,
@@ -207,6 +215,7 @@ export default {
 .allowoverflow .box {
   overflow-y: visible;
 }
+
 .veil {
   position: fixed;
   top: 0px;
@@ -255,11 +264,13 @@ export default {
   .close-wrap {
     display: none;
   }
+
   .content {
     zoom: 70%;
     max-width: 1000px;
   }
 }
+
 .print {
   width: 100% !important;
   height: 100% !important;
@@ -267,6 +278,7 @@ export default {
   max-height: unset !important;
   display: flex;
   flex-direction: column;
+
   .close-wrap {
     position: sticky;
     margin-left: auto;
@@ -274,9 +286,11 @@ export default {
     width: 250px;
     bottom: 20px;
   }
+
   @media print {
     overflow: visible;
   }
+
   .content {
     margin-left: auto;
     margin-right: auto;
