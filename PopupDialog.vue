@@ -33,8 +33,7 @@ export default {
     click_button() {
       this.$emit("button");
       if (this.buttonclose) {
-        history.back();
-
+        this.close()
       }
     },
 
@@ -42,14 +41,20 @@ export default {
       if (this.nocloseonclickoutside) {
         return;
       }
-
-      history.back();
+      this.close()
     },
 
     button_close_popup() {
-      history.back();
+      this.close()
     },
+    close() {
+      if (this.mobile) {
+        history.back();
+      } else {
+        this.doClose()
+      }
 
+    },
     doClose() {
       this.content = false;
       this.$emit("update:modelValue", this.content);
@@ -65,7 +70,7 @@ export default {
       e.stopPropagation();
       e.stopImmediatePropagation();
       if (e.key?.toLowerCase() === "escape") {
-        history.back();
+        this.close()
       }
     },
 
@@ -79,23 +84,35 @@ export default {
       };
       addEventListener("afterprint", after_print, { once: true });
     },
+    isMobile() {
+      var match = window.matchMedia || window.msMatchMedia;
+      if (match) {
+        var mq = match("(pointer:coarse)");
+        return mq.matches;
+      }
+      return false;
+    }
   },
 
   mounted() {
-    history.pushState({ popupOpen: true, url: window.location.toString() }, "");
 
     addEventListener("keydown", this.esc_close_popup);
     if (this.print) {
       addEventListener("beforeprint", this.before_print);
     }
-    addEventListener("popstate", this.popstate);
+    if (this.mobile) {
+      history.pushState({ popupOpen: true, url: window.location.toString() }, "");
+      addEventListener("popstate", this.popstate);
+    }
   },
 
   unmounted() {
     removeEventListener("keydown", this.esc_close_popup);
-    removeEventListener("popstate", this.popstate);
     if (this.print) {
       removeEventListener("beforeprint", this.before_print);
+    }
+    if (this.mobile) {
+      removeEventListener("popstate", this.popstate);
     }
   },
 
@@ -167,6 +184,7 @@ export default {
   data() {
     return {
       content: this.modelValue,
+      mobile: this.isMobile(),
     };
   },
 };
