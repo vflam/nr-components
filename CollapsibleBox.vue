@@ -140,6 +140,12 @@ export default {
       }
     },
   },
+
+  watch: {
+    collapsible() {
+      this.initiated = true;
+    },
+  },
 };
 </script>
 <style scoped lang="scss">
