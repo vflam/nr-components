@@ -1,29 +1,21 @@
 <template>
-  <div
-    :class="{
-      box: !nobox && !noboxindent,
-      nobox: nobox,
-      nocollapse: !collapsible,
-      noboxindent: noboxindent,
-      verticalbox: collapsed && vertical,
-    }"
-    class="collapsibleBox"
-    :id="id"
-  >
-    <h3
-      v-if="!notitle"
-      :class="[
-        {
-          arrowTitle: collapsible,
-          normalTitle: !collapsible,
-          collapsed: collapsible && collapsed,
-          titleClickCollapsible: collapsible && !collapsed && titleCollapse,
-          titleClickEffect: collapsed || collapsible,
-        },
-        title,
-      ]"
-      @click="titleSwitch"
-    >
+  <div :class="{
+    box: !nobox && !noboxindent,
+    nobox: nobox,
+    nocollapse: !collapsible,
+    noboxindent: noboxindent,
+    verticalbox: collapsed && vertical,
+  }" class="collapsibleBox" :id="id">
+    <h3 v-if="!notitle" :class="[
+      {
+        arrowTitle: collapsible,
+        normalTitle: !collapsible,
+        collapsed: collapsible && collapsed,
+        titleClickCollapsible: collapsible && !collapsed && titleCollapse,
+        titleClickEffect: collapsed || collapsible,
+      },
+      title,
+    ]" @click="titleSwitch">
       <img v-if="collapsible" :src="dropdownSrc" class="icon arrow" @click.stop="collapseSwitch" />
       <slot name="title" class="title" />
     </h3>
@@ -154,6 +146,7 @@ export default {
 .arrowTitle.titleClickEffect {
   cursor: pointer;
 }
+
 .arrowTitle {
   position: relative;
   padding: 3px;
@@ -167,7 +160,7 @@ export default {
 .normalTitle {
   position: relative;
   padding-top: 5px;
-  padding-bottom: 5px;
+  // padding-bottom: 5px;
   padding-left: 8px;
 }
 
@@ -183,7 +176,7 @@ h3 {
   padding: 5px;
 }
 
-.nobox > .boxContent {
+.nobox>.boxContent {
   padding: 0px;
 }
 
@@ -194,9 +187,11 @@ h3 {
 .titleClickCollapsible:hover {
   filter: brightness(95%) !important;
 }
+
 .arrowTitle.collapsed:hover {
   filter: brightness(105%) !important;
 }
+
 .verticalbox {
   width: 25px;
 
