@@ -33,7 +33,7 @@ export default {
     click_button() {
       this.$emit("button");
       if (this.buttonclose) {
-        this.close()
+        this.close();
       }
     },
 
@@ -41,19 +41,18 @@ export default {
       if (this.nocloseonclickoutside) {
         return;
       }
-      this.close()
+      this.close();
     },
 
     button_close_popup() {
-      this.close()
+      this.close();
     },
     close() {
       if (this.mobile) {
         history.back();
       } else {
-        this.doClose()
+        this.doClose();
       }
-
     },
     doClose() {
       this.content = false;
@@ -70,7 +69,7 @@ export default {
       e.stopPropagation();
       e.stopImmediatePropagation();
       if (e.key?.toLowerCase() === "escape") {
-        this.close()
+        this.close();
       }
     },
 
@@ -85,17 +84,17 @@ export default {
       addEventListener("afterprint", after_print, { once: true });
     },
     isMobile() {
+      // @ts-ignore
       var match = window.matchMedia || window.msMatchMedia;
       if (match) {
         var mq = match("(pointer:coarse)");
         return mq.matches;
       }
       return false;
-    }
+    },
   },
 
   mounted() {
-
     addEventListener("keydown", this.esc_close_popup);
     if (this.print) {
       addEventListener("beforeprint", this.before_print);
@@ -173,13 +172,6 @@ export default {
     modelValue(n) {
       this.content = n;
     },
-    /*     $route(to, from, next) {
-      debugger;
-      console.log(from);
-      if (!this.keeponroutechange) {
-        this.doClose();
-      }
-    }, */
   },
   data() {
     return {
