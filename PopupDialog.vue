@@ -239,6 +239,11 @@ export default {
 .box {
   padding: 5px;
 }
+.box.print {
+  padding: unset !important;
+  margin: unset !important;
+  border: unset !important;
+}
 
 @media screen and (max-width: $large_mode) {
   .box {
