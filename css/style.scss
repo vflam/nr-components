@@ -563,6 +563,9 @@ h3.popup {
 .hover-brighten:hover {
   background-color: var(--hover-brighten-color, rgba(255, 255, 255, 0.15));
 }
+.underline {
+  text-decoration: underline;
+}
 .hastooltip {
   text-decoration: underline;
   text-decoration-style: dotted;
