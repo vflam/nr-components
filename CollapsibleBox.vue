@@ -1,21 +1,29 @@
 <template>
-  <div :class="{
-    box: !nobox && !noboxindent,
-    nobox: nobox,
-    nocollapse: !collapsible,
-    noboxindent: noboxindent,
-    verticalbox: collapsed && vertical,
-  }" class="collapsibleBox" :id="id">
-    <h3 v-if="!notitle" :class="[
-      {
-        arrowTitle: collapsible,
-        normalTitle: !collapsible,
-        collapsed: collapsible && collapsed,
-        titleClickCollapsible: collapsible && !collapsed && titleCollapse,
-        titleClickEffect: collapsed || collapsible,
-      },
-      title,
-    ]" @click="titleSwitch">
+  <div
+    :class="{
+      box: !nobox && !noboxindent,
+      nobox: nobox,
+      nocollapse: !collapsible,
+      noboxindent: noboxindent,
+      verticalbox: collapsed && vertical,
+    }"
+    class="collapsibleBox"
+    :id="id"
+  >
+    <h3
+      v-if="!notitle"
+      :class="[
+        {
+          arrowTitle: collapsible,
+          normalTitle: !collapsible,
+          collapsed: collapsible && collapsed,
+          titleClickCollapsible: collapsible && !collapsed && titleCollapse,
+          titleClickEffect: collapsed || collapsible,
+        },
+        title,
+      ]"
+      @click="titleSwitch"
+    >
       <img v-if="collapsible" :src="dropdownSrc" class="icon arrow" @click.stop="collapseSwitch" />
       <slot name="title" class="title" />
     </h3>
@@ -99,7 +107,7 @@ export default {
   computed: {
     dropdownSrc() {
       let n = 2;
-      if (this.$optionStore.options.appearence.dropdownStyle) {
+      if (this.$optionStore?.options?.appearence?.dropdownStyle) {
         n = this.$optionStore.options.appearence.dropdownStyle;
       }
       let images = [`/assets/icons/right${n}.png`, `/assets/icons/down${n}.png`];
@@ -176,7 +184,7 @@ h3 {
   padding: 5px;
 }
 
-.nobox>.boxContent {
+.nobox > .boxContent {
   padding: 0px;
 }
 
