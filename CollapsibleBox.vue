@@ -160,8 +160,8 @@ export default {
   padding: 3px;
 
   img.arrow {
-    vertical-align: middle;
-    margin-right: 5px;
+    vertical-align: bottom;
+    margin-right: 2px;
   }
 }
 
