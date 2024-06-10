@@ -151,8 +151,12 @@ export default {
 <style scoped lang="scss">
 @import "@/shared_components/css/vars.scss";
 
+.arrowTitle :deep(label) {
+  cursor: pointer !important;
+}
+
 .arrowTitle.titleClickEffect {
-  cursor: pointer;
+  cursor: pointer !important;
 }
 
 .arrowTitle {
