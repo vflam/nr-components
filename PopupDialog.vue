@@ -4,6 +4,11 @@
       <div class="veil" @click="veil_close_popup"></div>
       <div class="box" :class="{ print }" :style="slotstyle">
         <div class="content" ref="content">
+          <div class="head" v-if="x">
+            <slot name="header" />
+            <div @click="close" v-if="x" class="xCross"><img src="/assets/icons/redcross.png" /></div>
+          </div>
+
           <slot />
         </div>
         <div class="close-wrap">
@@ -284,6 +289,24 @@ export default {
     zoom: 70%;
     max-width: 1000px;
   }
+}
+
+.xCross {
+  position: absolute;
+  top: 6px;
+  right: 4px;
+  cursor: pointer;
+}
+
+.head {
+  position: sticky;
+  top: 0;
+  background: $popups_header !important;
+  border: 1px solid $box_border;
+  padding: 5px;
+  margin-bottom: 5px;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 .print {
