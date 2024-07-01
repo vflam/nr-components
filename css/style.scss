@@ -660,20 +660,13 @@ h3.popupTitle {
   font-style: italic;
 }
 
+
+
 @keyframes blink {
-  0% {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
+  0%, 2%, 4%, 6%, 8%, 100% { opacity: 1; }
+  1%, 3%, 5%, 7% { opacity: 0; }
+  10%, 100% { opacity: 1; }
 }
-
 .blink {
-  animation: blink normal 1s infinite ease-in-out;
+  animation: blink 3s infinite;
 }
