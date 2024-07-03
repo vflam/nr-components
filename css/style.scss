@@ -577,7 +577,7 @@ h3.popup {
   height: 100%;
   overflow-y: auto;
   scrollbar-width: thin;
-  scrollbar-color: rgba(0, 0, 0, 0.3) rgba(0, 0, 0, 0);
+
 }
 html.dark .scrollable{
   scrollbar-color: rgba(255, 255, 255, 0.3) rgba(0, 0, 0, 0);
@@ -590,7 +590,6 @@ html.dark .scrollable{
   right: 0px;
   border-top: 1px solid $box_border;
 }
-
 .border {
   border: 1px solid $box_border;
   border-collapse: collapse;
