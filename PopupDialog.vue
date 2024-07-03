@@ -215,8 +215,6 @@ export default {
   min-width: min(min(95%, 1200px), v-bind(width));
 
   overflow-y: auto;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(0, 0, 0, 0.3) rgba(0, 0, 0, 0);
 }
 
 .content {
