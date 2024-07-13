@@ -305,7 +305,7 @@ html.dark .box {
   border: 1px solid $box_border;
   padding: 5px;
   margin-bottom: 5px;
-  font-size: 18px;
+  font-size: $fontHeaderSize;
   font-weight: bold;
 }
 

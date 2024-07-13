@@ -1,0 +1,36 @@
+@import "@/shared_components/css/vars.scss";
+
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 1px solid $box_border;
+  background-color: $input_background;
+  cursor: pointer;
+  position: relative;
+  border-radius: calc($input_radius / 2);
+}
+
+input[type="checkbox"]::after {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 4px;
+  top: 1px;
+  width: 4px;
+  height: 8px;
+  border: solid $input_background;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+input[type="checkbox"]:checked {
+  background-color: $input_highlights;
+  border-color: $input_highlights;
+}
+
+input[type="checkbox"]:checked::after {
+  display: block;
+}

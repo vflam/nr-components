@@ -172,12 +172,9 @@ export default {
 .normalTitle {
   position: relative;
   padding-top: 5px;
-  // padding-bottom: 5px;
-  padding-left: 8px;
-}
-
-h3 {
-  font-size: 16px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  font-size: $fontHeaderSize !important;
 }
 
 .collapsibleBox.box {
