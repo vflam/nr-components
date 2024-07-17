@@ -22,16 +22,6 @@ form {
 
 pre {
   margin: 0;
-}
-
-#app {
-  margin: 0 auto;
-  padding-top: 5px;
-  padding-left: $margin;
-  padding-right: $margin;
-}
-
-pre {
   white-space: pre-wrap;
   text-align: justify;
 }
@@ -183,10 +173,6 @@ h3 {
     margin-right: 3px;
   }
 
-  &.titreRoster {
-    background: $forces_background;
-  }
-
   &.titreCategory {
     margin-top: 0;
     margin-bottom: 0;
@@ -197,23 +183,15 @@ h3 {
   }
 
   &.titreForce {
-    display: grid;
-    grid-template-columns: min-content 1fr;
-    align-items: start;
-    align-content: start;
-    margin-top: 0;
-    margin-bottom: 0;
     background: $forces_background;
-    padding: 5px !important;
-    cursor: pointer;
-
-    img.arrow {
-      margin-right: 10px !important;
-    }
+    border: 1px solid $box_border;
+    padding: 5px;
+    font-size: $fontHeaderSize;
   }
 
+
   &.titreTeam {
-    background: $forces_background;
+    background: $title_background;
   }
 }
 
@@ -323,11 +301,6 @@ input[type="radio"] {
   .box {
     padding: $small_margin;
     margin-bottom: $small_margin;
-  }
-
-  #app {
-    padding-left: $small_margin;
-    padding-right: $small_margin;
   }
 
   table {
@@ -573,23 +546,26 @@ h3.popup {
   text-decoration: underline;
   text-decoration-style: dotted;
 }
+
 .scrollable {
   height: 100%;
   overflow-y: auto;
   scrollbar-width: thin;
-
 }
+
 html.dark .scrollable{
   scrollbar-color: rgba(255, 255, 255, 0.3) rgba(0, 0, 0, 0);
 }
+
 .scrollable::after {
   content: '';
   position: absolute;
   top: 0px;
   left: 0px;
   right: 0px;
-  border-top: 1px solid $box_border;
+  // border-top: 1px solid $box_border;
 }
+
 .border {
   border: 1px solid $box_border;
   border-collapse: collapse;

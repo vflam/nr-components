@@ -4,10 +4,11 @@ input[type="checkbox"] {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  width: 16px;
-  height: 16px;
+  width: 15px;
+  height: 15px;
   border: 1px solid $box_border;
   background-color: $input_background;
+  top: 3px;
   cursor: pointer;
   position: relative;
   border-radius: calc($input_radius / 2);
@@ -18,7 +19,7 @@ input[type="checkbox"]::after {
   position: absolute;
   display: none;
   left: 4px;
-  top: 1px;
+  top: 0px;
   width: 4px;
   height: 8px;
   border: solid $input_background;
@@ -33,4 +34,20 @@ input[type="checkbox"]:checked {
 
 input[type="checkbox"]:checked::after {
   display: block;
+}
+
+@media screen and (max-width: $mobile_mode) {
+  input[type="checkbox"].large {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+  }
+
+  input[type="checkbox"].large::after {
+    left: 5px;
+    top: 0px;
+    width: 5px;
+    height: 12px;
+    border-width: 0 3px 3px 0;
+  }
 }
