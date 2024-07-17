@@ -179,7 +179,7 @@ h3 {
     margin-top: 0;
     margin-bottom: 0;
     background: $title_background;
-    padding: 5px !important;
+    padding: 5px;
   }
 
   &.titreForce {
@@ -187,11 +187,21 @@ h3 {
     border: 1px solid $box_border;
     padding: 5px;
     font-size: $fontHeaderSize;
+    border-top-left-radius: $header_radius;
+    border-top-right-radius: $header_radius;
   }
 
 
   &.titreTeam {
     background: $title_background;
+  }
+}
+
+@media screen and (max-width: $large_mode) {
+  h3.titreForce {
+    border-radius:0;
+    border-left:none;
+    border-right:none;
   }
 }
 

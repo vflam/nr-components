@@ -161,7 +161,7 @@ export default {
 
 .arrowTitle {
   position: relative;
-  padding: 3px;
+  padding: 5px;
 
   img.arrow {
     vertical-align: bottom;

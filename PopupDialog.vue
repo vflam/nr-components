@@ -307,6 +307,7 @@ html.dark .box {
   margin-bottom: 5px;
   font-size: $fontHeaderSize;
   font-weight: bold;
+  border-radius: $header_radius;
 }
 
 .print {
