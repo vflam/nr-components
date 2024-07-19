@@ -5,10 +5,9 @@
   .inputOption {
     display: flex;
     align-items: center;
-    padding: 5px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    column-gap: 12px;
+
+    padding: 10px;
+    column-gap: 10px;
 
     *:nth-child(1) {
       order: 3;

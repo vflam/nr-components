@@ -165,7 +165,7 @@ export default {
 
   img.arrow {
     vertical-align: bottom;
-    margin-right: 2px;
+    margin-right: 5px;
   }
 }
 
