@@ -5,10 +5,9 @@
   .inputOption {
     display: flex;
     align-items: center;
-
-    padding: 10px;
     column-gap: 10px;
-
+    padding-left: 10px;
+    padding-right: 10px;
     *:nth-child(1) {
       order: 3;
     }
@@ -37,6 +36,8 @@
 
   .unitOption {
     grid-gap: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
 
   .hasGroup {
