@@ -301,7 +301,7 @@ html.dark .box {
 .head {
   position: sticky;
   top: 0;
-  background: $popups_header !important;
+  background-color: rgba(0, 0, 0, 0.1);
   border: 1px solid $box_border;
   padding: 5px;
   margin-bottom: 5px;
