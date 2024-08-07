@@ -32,6 +32,12 @@ input[type="checkbox"]:checked {
   border-color: $input_highlights;
 }
 
+input[type="checkbox"]:disabled {
+  background-color: $gray;
+  border-color: $input_highlights;
+}
+
+
 input[type="checkbox"]:checked::after {
   display: block;
 }
