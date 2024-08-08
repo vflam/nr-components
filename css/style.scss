@@ -543,6 +543,9 @@ h3.popup {
 .hover-brighten:hover {
   background-color: var(--hover-brighten-color, rgba(255, 255, 255, 0.15));
 }
+.hover-underline:hover {
+  text-decoration: underline;
+}
 .underline {
   text-decoration: underline;
 }
