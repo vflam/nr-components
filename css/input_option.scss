@@ -1,6 +1,15 @@
 @import "@/shared_components/css/vars.scss";
 
 
+.inputOption {
+  display: flex;
+  align-items: center;
+  column-gap:5px;
+  input[type=checkbox] {
+    margin: 0;
+  }
+}
+
 @media screen and (max-width: $mobile_mode) {
   .inputOption {
     display: flex;
