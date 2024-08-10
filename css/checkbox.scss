@@ -11,6 +11,9 @@ input[type="checkbox"] {
   cursor: pointer;
   position: relative;
   border-radius: calc($input_radius / 2);
+  margin-top:0;
+  margin-bottom:0;
+  vertical-align: -1px;
 }
 
 input[type="checkbox"]::after {
