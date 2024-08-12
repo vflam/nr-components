@@ -27,7 +27,7 @@ $dotted_border: 1px #555 dotted;
 $title_background: var(--title);
 $forces_background: var(--forces_background);
 $units_background: var(--units_background);
-
+$costs_background: var(--costs_background);
 
 $input_highlights: var(--input-highlights);
 $input_background: var(--input-background);
@@ -46,3 +46,7 @@ $italic: var(--italic, "italic");
 $hoverColor: var(--hover-color);
 
 $header_radius: 5px;
+
+$fontColorUnits: var(--font-color-units);
+$fontColorTitle: var(--font-color-title);
+$fontColorForces: var(--font-color-forces);
