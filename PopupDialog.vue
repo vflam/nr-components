@@ -215,6 +215,7 @@ export default {
   min-width: min(min(95%, 1200px), v-bind(width));
 
   overflow-y: auto;
+  scrollbar-width: thin;
 }
 html.dark .box {
   scrollbar-color: rgba(255, 255, 255, 0.3) rgba(0, 0, 0, 0);
