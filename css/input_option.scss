@@ -18,12 +18,13 @@
 .mobileMode {
   .inputOption {
     display: flex;
-    align-items: center;
     column-gap: 10px;
     padding-left: 10px;
     padding-right: 10px;
+ 
     *:nth-child(1) {
       order: 4;
+      flex-shrink: 0;
     }
 
     *:nth-child(2) {
