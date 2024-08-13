@@ -639,7 +639,7 @@ h3.popupTitle {
 }
 
 .imgBt:hover {
-  background-color: $hoverColor;
+  background-color: var(--hover-darken-color, rgba(0, 0, 0, 0.15));
 }
 
 .italic {

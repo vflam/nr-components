@@ -221,7 +221,7 @@ html.dark .box {
   scrollbar-color: rgba(255, 255, 255, 0.3) rgba(0, 0, 0, 0);
 }
 .close-wrap {
-  margin-top: 10px;
+  margin-top: 10px !important;
 }
 
 .allowoverflow .content {
