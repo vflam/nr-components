@@ -260,8 +260,21 @@ input[type="radio"] {
 
 .imgBt {
   cursor: pointer;
-  display: block;
-  padding: 0;
+}
+
+.imgBt:hover {
+  filter: brightness(var(--hover-darken-pct, 85%));
+  background-color:  var(--hover-darken-color, rgba(0, 0, 0, 0.15)); 
+  border-radius: 4px !important;
+}
+
+img.imgBt:hover {
+  background-color:  var(--hover-darken-color, rgba(0, 0, 0, 0.15)); 
+  border-radius: 4px !important;
+}
+
+img.imgBt, .imgBt > img,  .imgBt * img {
+  filter: var(--image-filter) !important;
 }
 
 .boutons {
@@ -540,9 +553,11 @@ h3.popup {
   color: rgb(107, 107, 107);
 }
 .hover-darken:hover {
-  background-color: var(--hover-darken-color, rgba(0, 0, 0, 0.15));
+  filter: brightness(var(--hover-darken-pct, 85%));
+  background-color:  var(--hover-darken-color, rgba(0, 0, 0, 0.15)); 
 }
 .hover-brighten:hover {
+  filter: brightness(var(--hover-brighten-pct,115%));
   background-color: var(--hover-brighten-color, rgba(255, 255, 255, 0.15));
 }
 .hover-underline:hover {
@@ -636,10 +651,6 @@ h3.popupTitle {
   border-radius: 10px;
   cursor: pointer;
   box-shadow: $box_shadow;
-}
-
-.imgBt:hover {
-  background-color: var(--hover-darken-color, rgba(0, 0, 0, 0.15));
 }
 
 .italic {
