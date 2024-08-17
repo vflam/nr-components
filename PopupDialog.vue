@@ -6,7 +6,9 @@
         <div class="content" ref="content">
           <div class="head" v-if="x">
             <slot name="header" />
-            <div @click="close" v-if="x" class="xCross"><img src="/assets/icons/blackcross.png" /></div>
+            <div @click="close" v-if="x" class="xCross imgBt">
+              <img style="display: block" src="/assets/icons/blackcross.png" />
+            </div>
           </div>
 
           <slot />
