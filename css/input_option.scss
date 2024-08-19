@@ -5,14 +5,7 @@
 }
 
 @media screen and (min-width: $mobile_mode) {
-  .inputOption {
-    display: flex;
-    column-gap: 10px;
-    input[type="checkbox"] {
-      margin: 0;
-    }
-    align-items: center;
-  }
+
 }
 
 .mobileMode {
