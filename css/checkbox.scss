@@ -30,13 +30,13 @@ input[type="checkbox"]::after {
 }
 
 input[type="checkbox"]:checked {
-  background-color: $input_highlights;
+  background-color: $checkbox_background;
   border-color: $input_highlights;
 }
 
 input[type="checkbox"]:disabled {
   background-color: $gray;
-  border-color: $input_highlights;
+  border-color: $gray;
 }
 
 
