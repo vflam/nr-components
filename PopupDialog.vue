@@ -187,7 +187,6 @@ export default {
   },
   data() {
     const key = getRandomKey();
-    console.log("open", key);
     return {
       content: this.modelValue,
       mobile: this.isMobile(),
