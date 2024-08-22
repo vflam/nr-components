@@ -28,6 +28,8 @@
 </template>
 
 <script lang="ts">
+import { getRandomKey } from "~/assets/shared/util";
+
 export default {
   name: "PopupDialog",
   emits: ["button", "close", "update:modelValue", "cancel"],
@@ -69,7 +71,10 @@ export default {
     },
 
     popstate(e: PopStateEvent) {
-      this.doClose();
+      // Dont close if naviguating to this popup (eg from a nested popup)
+      if (e.state.popupUid !== this.popupUid) {
+        this.doClose();
+      }
     },
 
     esc_close_popup(e: KeyboardEvent) {
@@ -107,7 +112,7 @@ export default {
       addEventListener("beforeprint", this.before_print);
     }
     if (this.mobile) {
-      history.pushState({ popupOpen: true, url: window.location.toString() }, "");
+      history.pushState({ popupOpen: true, url: window.location.toString(), popupUid: this.popupUid }, "");
       addEventListener("popstate", this.popstate);
     }
   },
@@ -181,9 +186,12 @@ export default {
     },
   },
   data() {
+    const key = getRandomKey();
+    console.log("open", key);
     return {
       content: this.modelValue,
       mobile: this.isMobile(),
+      popupUid: key,
     };
   },
 };
