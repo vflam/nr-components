@@ -56,6 +56,7 @@ export default {
     button_close_popup() {
       this.close();
     },
+
     close() {
       if (this.mobile) {
         history.back();
@@ -63,6 +64,7 @@ export default {
         this.doClose();
       }
     },
+
     doClose() {
       this.content = false;
       this.$emit("update:modelValue", this.content);
@@ -71,9 +73,18 @@ export default {
     },
 
     popstate(e: PopStateEvent) {
-      // Dont close if naviguating to this popup (eg from a nested popup)
-      if (e.state.popupUid !== this.popupUid) {
+      if (!this.mobile) {
         this.doClose();
+      } else {
+        if (e.state.forward) {
+          const parsed = e.state.forward.split("_pop");
+          if (parsed.length > 1) {
+            const uid = parsed[parsed.length - 1];
+            if (uid === this.popupUid) {
+              this.doClose();
+            }
+          }
+        }
       }
     },
 
@@ -111,10 +122,15 @@ export default {
     if (this.print) {
       addEventListener("beforeprint", this.before_print);
     }
+
     if (this.mobile) {
-      history.pushState({ popupOpen: true, url: window.location.toString(), popupUid: this.popupUid }, "");
-      addEventListener("popstate", this.popstate);
+      this.$router.push({
+        state: { type: "pop", id: this.popupUid },
+        query: this.$route.query,
+        hash: (window.location.hash || "#") + "_pop" + this.popupUid,
+      });
     }
+    addEventListener("popstate", this.popstate);
   },
 
   unmounted() {
