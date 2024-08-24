@@ -37,16 +37,16 @@
     }
   }
 
-  .visibleUnitOption {
-
-    display: grid;
-    align-content: center;
-  }
-
   .mobileBorder {
     border-bottom: 1px $box_border solid;
     &:first-child {
       border-top: 1px $box_border solid;
+    }
+  }
+
+  .mobileBorderBottom {
+    &:first-child {
+    border-bottom: 1px $box_border solid;
     }
   }
 

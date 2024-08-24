@@ -665,3 +665,12 @@ h3.popupTitle {
 .blink {
   animation: blink 3s infinite;
 }
+
+.backArrowIcon {
+  margin-right: 7px;
+  background-color: $hoverColor;
+  padding: 2px;
+  border-radius: 5px;
+  vertical-align: middle;
+
+}
