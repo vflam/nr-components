@@ -73,19 +73,8 @@ export default {
     },
 
     popstate(e: PopStateEvent) {
-      if (!this.mobile) {
-        this.doClose();
-      } else {
-        if (e.state.forward) {
-          const parsed = e.state.forward.split("_pop");
-          if (parsed.length > 1) {
-            const uid = parsed[parsed.length - 1];
-            if (uid === this.popupUid) {
-              this.doClose();
-            }
-          }
-        }
-      }
+      if (this.mobile && e.state.popupDepth && e.state.popupDepth >= this.popupDepth) return;
+      this.doClose();
     },
 
     esc_close_popup(e: KeyboardEvent) {
@@ -122,13 +111,15 @@ export default {
     if (this.print) {
       addEventListener("beforeprint", this.before_print);
     }
-
     if (this.mobile) {
-      this.$router.push({
-        state: { type: "pop", id: this.popupUid },
-        query: this.$route.query,
-        hash: (window.location.hash || "#") + "_pop" + this.popupUid,
-      });
+      history.pushState(
+        {
+          url: window.location.href,
+          popupId: this.popupUid,
+          popupDepth: this.popupDepth,
+        },
+        "",
+      );
     }
     addEventListener("popstate", this.popstate);
   },
@@ -207,6 +198,7 @@ export default {
       content: this.modelValue,
       mobile: this.isMobile(),
       popupUid: key,
+      popupDepth: (document.getElementById("popups")?.childElementCount || 0) + 1,
     };
   },
 };
