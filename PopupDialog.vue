@@ -1,5 +1,5 @@
 <template>
-  <Teleport to="#popups" v-if="content">
+  <Teleport to="#popups" v-if="content" ref="popup">
     <div class="container" @click="stop" :class="{ allowoverflow: overflow }">
       <div class="veil" @click="veil_close_popup"></div>
       <div class="box" :class="{ print }" :style="slotstyle">
@@ -122,6 +122,8 @@ export default {
       );
     }
     addEventListener("popstate", this.popstate);
+
+    addEventListener("beforepush", this.close);
   },
 
   unmounted() {
@@ -132,6 +134,7 @@ export default {
     if (this.mobile) {
       removeEventListener("popstate", this.popstate);
     }
+    removeEventListener("beforepush", this.close);
   },
 
   props: {
