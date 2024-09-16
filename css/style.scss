@@ -555,6 +555,8 @@ h3.popup {
 .hover-darken:hover {
   filter: brightness(var(--hover-darken-pct, 85%));
   background-color:  var(--hover-darken-color, rgba(0, 0, 0, 0.15)); 
+  border-radius: 4px;
+
 }
 .hover-brighten:hover {
   filter: brightness(var(--hover-brighten-pct,115%));
