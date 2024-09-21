@@ -131,9 +131,7 @@ export default {
     if (this.print) {
       removeEventListener("beforeprint", this.before_print);
     }
-    if (this.mobile) {
-      removeEventListener("popstate", this.popstate);
-    }
+    removeEventListener("popstate", this.popstate);
     removeEventListener("beforepush", this.close);
   },
 
