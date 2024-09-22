@@ -40,9 +40,16 @@ export default {
     },
 
     click_button() {
-      this.$emit("button");
-      if (this.buttonclose) {
-        this.close();
+      const obj = { close: true as boolean | Promise<boolean> };
+      this.$emit("button", obj);
+      if (obj.close instanceof Promise) {
+        obj.close.then((close) => {
+          if (close) this.close();
+        });
+      } else {
+        if (this.buttonclose && obj.close) {
+          this.close();
+        }
       }
     },
 
