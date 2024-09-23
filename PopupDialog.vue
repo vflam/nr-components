@@ -103,8 +103,6 @@ export default {
       addEventListener("afterprint", after_print, { once: true });
     },
     isMobile() {
-      return false;
-
       // @ts-ignore
       var match = window.matchMedia || window.msMatchMedia;
       if (match) {
@@ -132,7 +130,7 @@ export default {
     }
     addEventListener("popstate", this.popstate);
 
-    addEventListener("beforepush", this.close);
+    addEventListener("beforepush", this.doClose);
   },
 
   unmounted() {
@@ -141,7 +139,7 @@ export default {
       removeEventListener("beforeprint", this.before_print);
     }
     removeEventListener("popstate", this.popstate);
-    removeEventListener("beforepush", this.close);
+    removeEventListener("beforepush", this.doClose);
   },
 
   props: {
