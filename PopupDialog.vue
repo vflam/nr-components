@@ -103,6 +103,8 @@ export default {
       addEventListener("afterprint", after_print, { once: true });
     },
     isMobile() {
+      return false;
+
       // @ts-ignore
       var match = window.matchMedia || window.msMatchMedia;
       if (match) {
