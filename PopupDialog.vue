@@ -15,6 +15,14 @@
         </div>
         <div class="close-wrap">
           <slot name="boutons"></slot>
+          <template v-for="button in buttons">
+            <button
+              :disabled="button.disabled === undefined ? false : button.disabled"
+              class="bouton close"
+              @click="click_buttons(button)"
+              >{{ button.label }}</button
+            >
+          </template>
           <button :disabled="disabled" v-if="button" class="bouton close" @click="click_button">
             {{ button }}
           </button>
@@ -29,7 +37,13 @@
 
 <script lang="ts">
 import { getRandomKey } from "~/assets/shared/util";
-
+export interface PopupButton {
+  label: string;
+  event?: string;
+  function?: Function;
+  close: boolean;
+  disabled?: boolean;
+}
 export default {
   name: "PopupDialog",
   emits: ["button", "close", "update:modelValue", "cancel"],
@@ -50,6 +64,18 @@ export default {
         if (this.buttonclose && obj.close) {
           this.close();
         }
+      }
+    },
+
+    click_buttons(button: PopupButton) {
+      if (button.event) {
+        this.$emit(button.event as any, button);
+      }
+      if (button.function) {
+        button.function();
+      }
+      if (button.close) {
+        this.close();
       }
     },
 
@@ -177,6 +203,10 @@ export default {
     buttonclose: {
       type: Boolean,
       default: true,
+    },
+    buttons: {
+      type: Array<PopupButton>,
+      default: [],
     },
     overflow: {
       type: Boolean,
@@ -348,7 +378,6 @@ html.dark .box {
     position: sticky;
     margin-left: auto;
     margin-right: auto;
-    width: 250px;
     bottom: 20px;
   }
 
