@@ -2,7 +2,7 @@
 
 html {
   font-family: sans-serif;
-  background-image: linear-gradient(rgba(255, 231, 180, 0.45), rgba(255, 231, 180, 0.45)), url(/assets/images/no.jpg);
+  background-image: linear-gradient(rgba(255, 231, 180, 0.45), rgba(255, 231, 180, 0.45)), url(~/static/assets/images/no.jpg);
   background-color: rgb(255, 231, 180);
   overscroll-behavior: none;
 }
@@ -213,20 +213,20 @@ h3 {
 
 .boutonPlus {
   background-repeat: no-repeat;
-  background-image: url(/assets/icons/iconeplus.png);
+  background-image: url(~/static/assets/icons/iconeplus.png);
   background-position: 6px 6px;
 }
 
 .boutonSpin {
   background-repeat: no-repeat;
-  background-image: url(/assets/icons/spin.gif);
+  background-image: url(~/static/assets/icons/spin.gif);
   background-position: 6px 6px;
   background-size: 20px;
 }
 
 .boutonMinus {
   background-repeat: no-repeat;
-  background-image: url(/assets/icons/iconeminus.png);
+  background-image: url(~/static/assets/icons/iconeminus.png);
   background-position: 7px 12px;
 }
 
@@ -461,13 +461,13 @@ input:invalid {
 @font-face {
   font-family: "Teko-Bold";
   font-display: block;
-  src: url("/assets/out/Teko-SemiBold.ttf");
+  src: url("~/static/assets/out/Teko-SemiBold.ttf");
 }
 
 @font-face {
   font-family: "Bahnschrift";
   font-display: block;
-  src: local("Banschrift"), url("/assets/BAHNSCHRIFT.TTF");
+  src: local("Banschrift"), url("~/static/assets/BAHNSCHRIFT.TTF");
 }
 
 .wiki {
