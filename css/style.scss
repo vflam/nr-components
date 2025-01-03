@@ -612,10 +612,10 @@ input[type="text"]:disabled {
   border-color: $box_border;
 }
 
-input[type="text"]:valid {
-  border-color: $green;
-  border-width: 2px;
-}
+// input[type="text"]:valid {
+//   border-color: $green;
+//   border-width: 2px;
+// }
 
 input[type="text"]:invalid {
   border-color: $red;
