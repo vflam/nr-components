@@ -31,7 +31,7 @@ $forces_background: var(--forces_background);
 $units_background: var(--units_background);
 $costs_background: var(--costs_background);
 
-$input_highlights: var(--input-highlights);
+$input_highlights: var(--input-highlights, #0063fb);
 $input_background: var(--input-background);
 $input_radius: var(--input-radius);
 $orange: "#805300";
