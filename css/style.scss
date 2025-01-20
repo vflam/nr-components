@@ -462,13 +462,13 @@ input:invalid {
 @font-face {
   font-family: "Teko-Bold";
   font-display: block;
-  src: url("~/static/assets/out/Teko-SemiBold.ttf");
+  src: url("~/static/Teko-SemiBold.ttf");
 }
 
 @font-face {
   font-family: "Bahnschrift";
   font-display: block;
-  src: local("Banschrift"), url("~/static/assets/BAHNSCHRIFT.TTF");
+  src: local("Banschrift"), local("Bahnschrift"), url("~/static/Bahnshrift.ttf");
 }
 
 .wiki {
