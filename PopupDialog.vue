@@ -248,27 +248,21 @@ export default {
 .container {
   z-index: 1000;
   position: fixed;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
+  top: var(--safe-area-inset-top, "0px");
+  left: var(--safe-area-inset-left, "0px");
+  right: var(--safe-area-inset-right, "0px");
+  bottom: var(--safe-area-inset-bottom, "0px");
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .box {
   background-color: $popups_background;
   background-image: $popups_background;
-  z-index: 1001;
-  display: inline-block;
-  position: fixed;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
   max-height: 80%;
-
+  z-index: 1001;
   width: max-content;
-  max-width: min(95%, 1200px);
-  min-width: min(min(95%, 1200px), v-bind(width));
-
   overflow-y: auto;
   scrollbar-width: thin;
 }
@@ -289,10 +283,10 @@ html.dark .box {
 
 .veil {
   position: fixed;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  bottom: 0;
+  top: var(--safe-area-inset-top, "0px");
+  left: var(--safe-area-inset-left, "0px");
+  right: var(--safe-area-inset-right, "0px");
+  bottom: var(--safe-area-inset-bottom, "0px");
   background-color: black;
   opacity: 0.7;
 }
@@ -300,17 +294,11 @@ html.dark .box {
 .box {
   padding: 5px;
 }
+
 .box.print {
   padding: unset !important;
   margin: unset !important;
   border: unset !important;
-}
-
-@media screen and (max-width: $large_mode) {
-  .box {
-    width: 95%;
-    max-width: 95%;
-  }
 }
 
 .close {
