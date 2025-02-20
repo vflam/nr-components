@@ -252,6 +252,8 @@ export default {
   left: 0px;
   right: 0px;
   bottom: 0px;
+  top: --var(--safe-area-inset-top);
+  bottom: --var(--safe-area-inset-bottom);
 }
 
 .box {
