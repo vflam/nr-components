@@ -218,7 +218,7 @@ export default {
     },
     width: {
       type: String,
-      default: "300px",
+      default: "1000px",
     },
     nocloseonclickoutside: {
       type: Boolean,
@@ -265,6 +265,8 @@ export default {
   width: max-content;
   overflow-y: auto;
   scrollbar-width: thin;
+  max-width: v-bind(width);
+  overflow: visible;
 }
 html.dark .box {
   scrollbar-color: rgba(255, 255, 255, 0.3) rgba(0, 0, 0, 0);
