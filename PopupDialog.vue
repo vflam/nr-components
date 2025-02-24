@@ -265,9 +265,9 @@ export default {
   display: inline-block;
   position: fixed;
   width: max-content;
-  max-width: calc(min(95%, 1200px) - (var(--safe-area-inset-right, 0px) + var(--safe-area-inset-right, 0px)));
+  max-width: calc(min(95%, 1200px) - (var(--safe-area-inset-left, 0px) + var(--safe-area-inset-right, 0px)));
   min-width: calc(
-    min(min(95%, 1200px), v-bind(width)) - (var(--safe-area-inset-right, 0px) + var(--safe-area-inset-right, 0px))
+    min(min(95%, 1200px), v-bind(width)) - (var(--safe-area-inset-left, 0px) + var(--safe-area-inset-right, 0px))
   );
 
   z-index: 1001;
@@ -281,14 +281,6 @@ html.dark .box {
 }
 .close-wrap {
   margin-top: 10px !important;
-}
-
-.allowoverflow .content {
-  overflow-y: visible;
-}
-
-.allowoverflow .box {
-  overflow-y: visible;
 }
 
 .veil {
@@ -365,8 +357,8 @@ html.dark .box {
 }
 
 .print {
-  width: 100% !important;
-  height: 100% !important;
+  width: calc(100% - (var(--safe-area-inset-right, 0px) + var(--safe-area-inset-left, 0px))) !important;
+  height: calc(100% - (var(--safe-area-inset-top, 0px) + var(--safe-area-inset-bottom, 0px))) !important;
   max-width: unset !important;
   max-height: unset !important;
   display: flex;
