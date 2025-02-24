@@ -218,7 +218,7 @@ export default {
     },
     width: {
       type: String,
-      default: "1000px",
+      default: "300px",
     },
     nocloseonclickoutside: {
       type: Boolean,
@@ -260,14 +260,22 @@ export default {
 .box {
   background-color: $popups_background;
   background-image: $popups_background;
-  max-height: 80%;
-  z-index: 1001;
+  max-height: calc(80% - (var(--safe-area-inset-top, 0px) + (var(--safe-area-inset-bottom, 0px))));
+
+  display: inline-block;
+  position: fixed;
   width: max-content;
+  max-width: calc(min(95%, 1200px) - (var(--safe-area-inset-right, 0px) + var(--safe-area-inset-right, 0px)));
+  min-width: calc(
+    min(min(95%, 1200px), v-bind(width)) - (var(--safe-area-inset-right, 0px) + var(--safe-area-inset-right, 0px))
+  );
+
+  z-index: 1001;
+
   overflow-y: auto;
   scrollbar-width: thin;
-  max-width: v-bind(width);
-  overflow: auto;
 }
+
 html.dark .box {
   scrollbar-color: rgba(255, 255, 255, 0.3) rgba(0, 0, 0, 0);
 }
