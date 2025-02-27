@@ -151,7 +151,7 @@ export default {
           popupId: this.popupUid,
           popupDepth: this.popupDepth,
         },
-        "",
+        ""
       );
     }
     addEventListener("popstate", this.popstate);
@@ -248,10 +248,10 @@ export default {
 .container {
   z-index: 1000;
   position: fixed;
-  top: var(--safe-area-inset-top, "0px");
-  left: var(--safe-area-inset-left, "0px");
-  right: var(--safe-area-inset-right, "0px");
-  bottom: var(--safe-area-inset-bottom, "0px");
+  top: var(--safe-area-inset-top, 0);
+  left: var(--safe-area-inset-left, 0);
+  right: var(--safe-area-inset-right, 0);
+  bottom: var(--safe-area-inset-bottom, 0);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -260,14 +260,14 @@ export default {
 .box {
   background-color: $popups_background;
   background-image: $popups_background;
-  max-height: calc(80% - (var(--safe-area-inset-top, 0px) + (var(--safe-area-inset-bottom, 0px))));
+  max-height: calc(80% - (var(--safe-area-inset-top, 0) + (var(--safe-area-inset-bottom, 0))));
 
   display: inline-block;
   position: fixed;
   width: max-content;
-  max-width: calc(min(95%, 1200px) - (var(--safe-area-inset-left, 0px) + var(--safe-area-inset-right, 0px)));
+  max-width: calc(min(95%, 1200) - (var(--safe-area-inset-left, 0) + var(--safe-area-inset-right, 0)));
   min-width: calc(
-    min(min(95%, 1200px), v-bind(width)) - (var(--safe-area-inset-left, 0px) + var(--safe-area-inset-right, 0px))
+    min(min(95%, 1200), v-bind(width)) - (var(--safe-area-inset-left, 0) + var(--safe-area-inset-right, 0))
   );
 
   z-index: 1001;
@@ -285,10 +285,10 @@ html.dark .box {
 
 .veil {
   position: fixed;
-  top: var(--safe-area-inset-top, "0px");
-  left: var(--safe-area-inset-left, "0px");
-  right: var(--safe-area-inset-right, "0px");
-  bottom: var(--safe-area-inset-bottom, "0px");
+  top: var(--safe-area-inset-top, 0);
+  left: var(--safe-area-inset-left, 0);
+  right: var(--safe-area-inset-right, 0);
+  bottom: var(--safe-area-inset-bottom, 0);
   background-color: black;
   opacity: 0.7;
 }
@@ -357,8 +357,8 @@ html.dark .box {
 }
 
 .print {
-  width: calc(100% - (var(--safe-area-inset-right, 0px) + var(--safe-area-inset-left, 0px))) !important;
-  height: calc(100% - (var(--safe-area-inset-top, 0px) + var(--safe-area-inset-bottom, 0px))) !important;
+  width: calc(100% - (var(--safe-area-inset-right, 0) + var(--safe-area-inset-left, 0))) !important;
+  height: calc(100% - (var(--safe-area-inset-top, 0) + var(--safe-area-inset-bottom, 0))) !important;
   max-width: unset !important;
   max-height: unset !important;
   display: flex;
