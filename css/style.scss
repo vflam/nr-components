@@ -522,8 +522,11 @@ input {
 }
 
 .unselectable,
-img {
+img,
+svg {
   user-select: none;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .precision {
