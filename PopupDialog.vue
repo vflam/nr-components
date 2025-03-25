@@ -5,7 +5,10 @@
       <div class="box" :class="{ print }" :style="slotstyle">
         <div class="content" ref="content">
           <div class="head" v-if="x">
-            <slot name="header" />
+            <div class="headTitle">
+              <slot name="header" />
+            </div>
+
             <div @click="close" v-if="x" class="xCross imgBt">
               <img style="display: block" src="/assets/icons/blackcross.png" />
             </div>
@@ -151,7 +154,7 @@ export default {
           popupId: this.popupUid,
           popupDepth: this.popupDepth,
         },
-        ""
+        "",
       );
     }
     addEventListener("popstate", this.popstate);
@@ -354,6 +357,13 @@ html.dark .box {
   font-size: $fontHeaderSize;
   font-weight: bold;
   border-radius: $header_radius;
+}
+
+.headTitle {
+  width: calc(100% - 25px);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .print {
