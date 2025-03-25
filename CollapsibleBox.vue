@@ -24,7 +24,7 @@
       ]"
       @click="titleSwitch"
     >
-      <img v-if="collapsible" :src="dropdownSrc" class="icon arrow" @click.stop="collapseSwitch" />
+      <img v-if="collapsible && icon" :src="dropdownSrc" class="icon arrow" @click.stop="collapseSwitch" />
       <slot name="title" class="title" />
     </h3>
     <div v-if="initiated" v-show="!collapsed || !collapsible" class="boxContent">
@@ -79,6 +79,10 @@ export default {
     id: {
       type: String,
       required: false,
+    },
+    icon: {
+      type: Boolean,
+      default: true,
     },
   },
   mounted() {
