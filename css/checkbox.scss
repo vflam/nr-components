@@ -46,6 +46,7 @@ input[type="checkbox"]:checked::after {
 
 @media screen and (max-width: $mobile_mode) {
   input[type="checkbox"].large {
+    min-width: 25px;
     width: 25px;
     height: 25px;
     margin: 0;
