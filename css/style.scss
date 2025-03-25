@@ -198,6 +198,11 @@ h3 {
   }
 }
 
+@media screen and (min-width: $mobile_mode) {
+  h3.titreForce {
+    padding: 5px;
+  }
+}
 @media screen and (max-width: $large_mode) {
   h3.titreForce {
     border-radius:0;
