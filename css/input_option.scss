@@ -4,17 +4,24 @@
   margin-bottom: 0;
 }
 
-@media screen and (min-width: $mobile_mode) {
-
+.unitOption {
+  display: grid;
+  grid-gap: 5px;
 }
 
 .mobileMode {
+  :deep(.normalTitle) {
+    padding-top: 0px;
+    padding-left: 10px;
+  }
+
   .inputOption {
     padding-left: 10px;
     padding-right: 10px;
     display: flex;
-    
-    input, .input {
+
+    input,
+    .input {
       order: 5;
       margin-right: 3px;
       margin-left: auto;
@@ -34,9 +41,10 @@
     }
   }
 
-  .mobileBorderBottom {
+  .mobileRootBorder {
     &:first-child {
-    border-bottom: 1px $box_border solid;
+      border-bottom: 1px $box_border solid;
+      padding-bottom: 10px;
     }
   }
 
@@ -47,10 +55,17 @@
   .optionPadding {
     padding-top: 10px;
     padding-bottom: 10px;
+    &:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
   }
 
   .hasGroup {
     font-weight: bold;
   }
-}
 
+  .groupMargin {
+    margin-top: 10px;
+  }
+}
