@@ -4,8 +4,8 @@
       <div class="veil" @click="veil_close_popup"></div>
       <div class="box" :class="{ print }" :style="slotstyle">
         <div class="content" ref="content">
-          <div class="head" v-if="x">
-            <div class="headTitle">
+          <div :class="{ head: !notitlebar }" v-if="x">
+            <div class="headTitle" v-if="!notitlebar">
               <slot name="header" />
             </div>
 
@@ -224,6 +224,10 @@ export default {
       default: "300px",
     },
     nocloseonclickoutside: {
+      type: Boolean,
+      default: false,
+    },
+    notitlebar: {
       type: Boolean,
       default: false,
     },
