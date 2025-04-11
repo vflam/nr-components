@@ -231,6 +231,14 @@ export default {
       type: Boolean,
       default: false,
     },
+    xtop: {
+      type: String,
+      default: "6px",
+    },
+    xright: {
+      type: String,
+      default: "6px",
+    },
   },
   watch: {
     modelValue(n) {
@@ -346,15 +354,15 @@ html.dark .box {
 
 .xCross {
   position: absolute;
-  top: 6px;
-  right: 4px;
+  top: v-bind(xtop);
+  right: v-bind(xright);
   cursor: pointer;
 }
 
 .head {
   position: sticky;
   top: 0;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: $box_border;
   border: 1px solid $box_border;
   padding: 5px;
   margin-bottom: 5px;
