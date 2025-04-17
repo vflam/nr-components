@@ -257,6 +257,9 @@ a.bouton {
   cursor: pointer;
 }
 
+button.bouton, select {
+  padding: inherit !important;
+}
 input[type="radio"] {
   width: auto !important;
 }
