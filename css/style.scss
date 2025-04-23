@@ -260,6 +260,12 @@ a.bouton {
 button.bouton, select {
   padding: inherit !important;
 }
+
+select {
+  padding-left: 5px !important;
+  padding-right: 5px !important;;
+}
+
 input[type="radio"] {
   width: auto !important;
 }
