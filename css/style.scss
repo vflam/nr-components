@@ -83,11 +83,13 @@ p {
   margin-top: 0;
 }
 
+.box:not(:last-child) { 
+  margin-bottom: $margin;
+}
 .box {
   border: 1px solid $box_border;
   padding: $margin;
   box-shadow: $box_shadow;
-  margin-bottom: $margin;
 }
 
 .inbox {
@@ -579,6 +581,12 @@ h3.popup {
   filter: brightness(var(--hover-brighten-pct,115%));
   background-color: var(--hover-brighten-color, rgba(255, 255, 255, 0.15));
 }
+.hover-slightly-darken:hover {
+  filter: brightness(var(--hover-darken-pct, 95%));
+  background-color:  var(--hover-slightly-darken-color, rgba(0, 0, 0, 0.05)); 
+  border-radius: 4px;
+}
+
 .hover-underline:hover {
   text-decoration: underline;
 }

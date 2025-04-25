@@ -233,7 +233,7 @@ export default {
     },
     xtop: {
       type: String,
-      default: "6px",
+      default: "5px",
     },
     xright: {
       type: String,
@@ -333,7 +333,9 @@ html.dark .box {
   position: sticky;
   bottom: 0px;
 }
-
+.close-wrap:not(:has(*)) {
+  display: none;
+}
 .x {
   position: absolute;
   top: 4px;
@@ -362,7 +364,7 @@ html.dark .box {
 .head {
   position: sticky;
   top: 0;
-  background-color: $box_border;
+  background-color: rgba(0, 0, 0, 0.1);
   border: 1px solid $box_border;
   padding: 5px;
   margin-bottom: 5px;
