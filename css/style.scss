@@ -251,16 +251,17 @@ input[role="combobox"],
 button[class="bouton"],
 a.bouton {
   border: 1px solid $box_border;
-  padding: 6px;
   box-shadow: 2px 2px 5px -2px $box_border;
   margin: 0;
   box-sizing: border-box;
   height: 33px;
   cursor: pointer;
+  align-content: center;
 }
 
+
 button.bouton, select {
-  padding: inherit !important;
+  padding: unset !important;
 }
 
 select {
