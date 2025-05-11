@@ -9,15 +9,17 @@
   grid-gap: 5px;
 }
 
-.groupOption {
-  margin-top: 5px;
-}
 
 .mobileMode {
   :deep(.normalTitle) {
     padding-top: 0px;
     padding-left: 10px;
   }
+
+  .groupOption {
+     margin-top: 5px;
+  }
+
 
   .inputOption {
     padding:10px;
