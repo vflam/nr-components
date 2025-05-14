@@ -2,7 +2,14 @@
   <Teleport to="#popups" v-if="content" ref="popup">
     <div class="container" @click="stop" :class="{ allowoverflow: overflow }">
       <div class="veil" @click="veil_close_popup"></div>
-      <div class="box" :class="{ print }" :style="slotstyle">
+      <div
+        class="box"
+        :class="{ print }"
+        :style="{
+          '--maxwidth': maxwidth + 'px',
+          '--width': width + 'px',
+        }"
+      >
         <div class="content" ref="content">
           <div :class="{ head: !notitlebar }" v-if="x">
             <div class="headTitle" v-if="!notitlebar">
@@ -196,9 +203,7 @@ export default {
       default: false,
       type: Boolean,
     },
-    slotstyle: {
-      default: "",
-    },
+
     print: {
       type: Boolean,
       default: false,
@@ -280,9 +285,9 @@ export default {
   display: inline-block;
   position: fixed;
   width: max-content;
-  max-width: calc(min(95%, v-bind(maxwidth)) - (var(--safe-area-inset-left, 0) + var(--safe-area-inset-right, 0)));
+  max-width: calc(min(95%, var(--maxwidth)) - (var(--safe-area-inset-left, 0) + var(--safe-area-inset-right, 0)));
   min-width: calc(
-    min(min(95%, v-bind(maxwidth)), v-bind(width)) - (var(--safe-area-inset-left, 0) + var(--safe-area-inset-right, 0))
+    min(min(95%, var(--maxwidth)), var(--width)) - (var(--safe-area-inset-left, 0) + var(--safe-area-inset-right, 0))
   );
 
   z-index: 1001;
